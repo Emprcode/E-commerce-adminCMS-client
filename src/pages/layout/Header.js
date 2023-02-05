@@ -5,19 +5,19 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar bg="primary" expand="md">
+    <Navbar className="navbar" expand="md">
       <Container>
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand text-light">
           Admin CMS
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto ">
             <Link className="nav-link" to="/">
-              <i class="fa-solid fa-user"></i>
+              <i class="fa fa-sign-in text-light"></i>
             </Link>
             <Link className="nav-link" to="/register">
-              <i class="fa-solid fa-user-pen"></i>
+              <i class="fa-solid fa-user-pen text-light"></i>
             </Link>
           </Nav>
         </Navbar.Collapse>
