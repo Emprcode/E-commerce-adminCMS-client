@@ -5,3 +5,15 @@
     background: rgba(6, 13, 109, 0.959);
     
 }
+.verify-page{
+    height: 50vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg-page form{
+    width: 550px;
+    margin: auto;
+}
