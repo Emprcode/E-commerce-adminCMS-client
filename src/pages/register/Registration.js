@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Alert, Spinner } from "react-bootstrap";
 import { CustomInputFields } from "../../components/customInputFields/CustomInputFields";
+import { postAdminUser } from "../../helper/axiosHelper";
 import { AdminLayout } from "../layout/AdminLayout";
 
 const Registration = () => {
   const [form, setForm] = useState({});
+  const [response, setResponse] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const inputFields = [
     {
       label: "First Name",
@@ -61,17 +66,33 @@ const Registration = () => {
   const handleOnChange = (e) => {
     const { name, value } = e.target;
 
+    setError("");
+    if (name === "password") {
+      !/[a-z]/.test(value) && setError("At least one lower case required");
+      !/[A-Z]/.test(value) && setError("At least one upper case required");
+      !/[0-9]/.test(value) && setError("At least one number required");
+
+      value.length < 6 && setError("Password must be 6 character long");
+    }
+
     setForm({
       ...form,
       [name]: value,
     });
   };
-  console.log(form);
+  // console.log(form);
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
+    const { confirmPassword, ...rest } = form;
+    if (confirmPassword !== rest.password) {
+      return alert("Password do not match");
+    }
 
-    console.log(form);
+    setIsLoading(true);
+    const result = await postAdminUser(rest);
+    setResponse(result);
+    setIsLoading(false);
   };
 
   return (
@@ -82,11 +103,30 @@ const Registration = () => {
           className="border mt-5 mb-5 p-4 rounded shadow-lg"
           onSubmit={handleOnSubmit}>
           <h3 className="mb-3 text-center">New Admin Registration</h3>
+          <div className="text-center">
+            {isLoading && (
+              <Spinner variant="success" animation="border"></Spinner>
+            )}
+          </div>
+
+          {response.message && (
+            <Alert
+              variant={response.status === "success" ? "success" : "danger"}>
+              {response.message}
+            </Alert>
+          )}
           {inputFields.map((item, i) => (
             <CustomInputFields key={i} {...item} onChange={handleOnChange} />
           ))}
+          <Form.Text>
+            {" "}
+            Your Password must have at least 6 character long, Upper case, Lower
+            case and number
+          </Form.Text>
+
+          {error && <div className="text-danger mb-4">{error}</div>}
           <div className="d-grid">
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" disabled={error}>
               Submit
             </Button>
           </div>
