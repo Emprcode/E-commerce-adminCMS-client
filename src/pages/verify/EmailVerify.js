@@ -18,7 +18,7 @@ const EmailVerify = () => {
 
     verifyUserLink(data);
     isExeRef.current = false;
-  }, []);
+  }, [searchParams]);
 
   const verifyUserLink = async (data) => {
     //axios

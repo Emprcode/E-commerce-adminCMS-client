@@ -17,9 +17,25 @@ export const postAdminUser = async (userObj) => {
     };
   }
 };
+
+//email verification
 export const verifyAdminUser = async (userObj) => {
   try {
     const { data } = await axios.post(adminUrl + "/email-verify", userObj);
+    console.log(data);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+
+//admin login
+export const fetchAdminLogin = async (userObj) => {
+  try {
+    const { data } = await axios.post(adminUrl + "/login", userObj);
     console.log(data);
     return data;
   } catch (error) {

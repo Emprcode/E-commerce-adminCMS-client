@@ -66,8 +66,8 @@ const Registration = () => {
   const handleOnChange = (e) => {
     const { name, value } = e.target;
 
-    setError("");
     if (name === "password") {
+      setError("");
       !/[a-z]/.test(value) && setError("At least one lower case required");
       !/[A-Z]/.test(value) && setError("At least one upper case required");
       !/[0-9]/.test(value) && setError("At least one number required");
