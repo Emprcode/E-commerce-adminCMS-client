@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { CustomInputFields } from "../../components/customInputFields/CustomInputFields";
 import { AdminLayout } from "../layout/AdminLayout";
+import { useDispatch } from "react-redux";
+import { loginAdmin } from "../admin-user/adminUserAction";
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+
   const inputFields = [
     {
       label: "Email",
@@ -11,6 +17,7 @@ const LoginPage = () => {
       type: "email",
       placeholder: "email@email.com",
       required: true,
+      forwardref: emailRef,
     },
 
     {
@@ -19,11 +26,20 @@ const LoginPage = () => {
       type: "password",
       placeholder: "*******",
       required: true,
+      forwardref: passwordRef,
     },
   ];
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+
+    const loginObj = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+    console.log(loginObj);
+
+    dispatch(loginAdmin(loginObj));
   };
 
   return (
