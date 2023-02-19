@@ -4,9 +4,12 @@ import { CustomInputFields } from "../../components/customInputFields/CustomInpu
 import { AdminLayout } from "../layout/AdminLayout";
 import { useDispatch } from "react-redux";
 import { loginAdmin } from "../admin-user/adminUserAction";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
   const emailRef = useRef("");
   const passwordRef = useRef("");
 
@@ -40,6 +43,8 @@ const LoginPage = () => {
     console.log(loginObj);
 
     dispatch(loginAdmin(loginObj));
+
+    // result?._id && navigate("/dashboard");
   };
 
   return (

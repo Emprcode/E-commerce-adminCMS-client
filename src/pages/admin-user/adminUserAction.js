@@ -4,9 +4,13 @@ import { setUser } from "./adminUserSlice";
 
 export const loginAdmin = (formData) => async (dispatch) => {
   //call axios
-  const { status, message, result } = await fetchAdminLogin(formData);
-  //show react toastify
+  const resultPromise = fetchAdminLogin(formData);
+  toast.promise(resultPromise, {
+    pending: "please wait......",
+  });
 
+  //show react toastify
+  const { status, message, result } = await resultPromise;
   toast[status](message);
 
   //use dispatch
