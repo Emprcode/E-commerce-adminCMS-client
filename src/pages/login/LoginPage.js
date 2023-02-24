@@ -64,6 +64,9 @@ const LoginPage = () => {
               Submit
             </Button>
           </div>
+          <div className="text-end mt-4">
+            Forgot Password? <a href="/reset-password"> Reset now</a>
+          </div>
         </Form>
       </Container>
     </AdminLayout>

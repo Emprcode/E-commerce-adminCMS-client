@@ -2,17 +2,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSidebarShow } from "../../system/systemSlice";
 const Header = () => {
   const dispatch = useDispatch();
 
+  const { admin } = useSelector((state) => state.admin);
   return (
     <Navbar className="navbar" expand="md">
       <Container>
         <div>
           <i
-            class="fa-solid fa-bars text-light"
+            className="fa-solid fa-bars text-light"
             onClick={() => dispatch(setSidebarShow(true))}>
             {" "}
           </i>

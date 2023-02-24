@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.reg-page form{
+.reg-page form, .reset-password {
     width: 550px;
     margin: auto;
 }

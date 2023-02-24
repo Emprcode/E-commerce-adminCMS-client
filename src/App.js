@@ -5,6 +5,7 @@ import LoginPage from "./pages/login/LoginPage";
 import EmailVerify from "./pages/verify/EmailVerify";
 import { ToastContainer } from "react-toastify";
 import DashBoard from "./pages/dashboard/DashBoard";
+import ResetPassword from "./pages/reset-password/ResetPassword";
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LoginPage />}></Route>
           <Route path="/register" element={<Registration />}></Route>
           <Route path="/verify" element={<EmailVerify />}></Route>
+          <Route path="/reset-password" element={<ResetPassword />}></Route>
 
           {/* private route */}
           <Route path="/dashboard" element={<DashBoard />}></Route>
