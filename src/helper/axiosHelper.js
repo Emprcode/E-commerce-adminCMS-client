@@ -3,12 +3,14 @@ import axios from "axios";
 const apiUrl = process.env.REACT_APP_ROOT_API;
 const adminUrl = apiUrl + "/admin";
 
-//register
-
-export const postAdminUser = async (userObj) => {
+const axiosProcessor = async ({ url, method, userObj }) => {
   try {
-    const { data } = await axios.post(adminUrl, userObj);
-    console.log(data);
+    const { data } = await axios({
+      method,
+      url,
+      data: userObj,
+    });
+    // console.log(data);
     return data;
   } catch (error) {
     return {
@@ -16,32 +18,43 @@ export const postAdminUser = async (userObj) => {
       message: error.message,
     };
   }
+};
+//register
+
+export const postAdminUser = (userObj) => {
+  const obj = {
+    method: "post",
+    url: adminUrl,
+    userObj,
+  };
+  return axiosProcessor(obj);
 };
 
 //email verification
-export const verifyAdminUser = async (userObj) => {
-  try {
-    const { data } = await axios.post(adminUrl + "/email-verify", userObj);
-    console.log(data);
-    return data;
-  } catch (error) {
-    return {
-      status: "error",
-      message: error.message,
-    };
-  }
+export const verifyAdminUser = (userObj) => {
+  const obj = {
+    method: "post",
+    url: adminUrl + "/email-verify",
+    userObj,
+  };
+  return axiosProcessor(obj);
 };
 
 //admin login
-export const fetchAdminLogin = async (userObj) => {
-  try {
-    const { data } = await axios.post(adminUrl + "/login", userObj);
-    console.log(data);
-    return data;
-  } catch (error) {
-    return {
-      status: "error",
-      message: error.message,
-    };
-  }
+export const fetchAdminLogin = (userObj) => {
+  const obj = {
+    method: "post",
+    url: adminUrl + "/login",
+    userObj,
+  };
+  return axiosProcessor(obj);
+};
+
+export const fetchReqOtp = (userObj) => {
+  const obj = {
+    method: "post",
+    url: adminUrl + "/request-otp",
+    userObj,
+  };
+  return axiosProcessor(obj);
 };
