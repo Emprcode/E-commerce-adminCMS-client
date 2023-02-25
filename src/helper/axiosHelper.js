@@ -53,3 +53,11 @@ export const fetchReqOtp = (objDt) => {
   };
   return axiosProcessor(obj);
 };
+export const fetchResetPassword = (objDt) => {
+  const obj = {
+    method: "patch",
+    url: adminAPI + "/reset-password",
+    objDt,
+  };
+  return axiosProcessor(obj);
+};

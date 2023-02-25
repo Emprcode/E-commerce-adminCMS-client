@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react";
-import { Button, Form, Spinner, Alert } from "react-bootstrap";
+import React, {  useState } from "react";
+import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 import { CustomInpute } from "../customInpute/CustomInpute";
 
-export const FormResetPassword = ({ email, goBack }) => {
+export const FormResetPassword = ({ email, goBack, resetPasswordRequest }) => {
   const [error, setError] = useState("");
   const [form, setForm] = useState({});
 
@@ -35,6 +35,7 @@ export const FormResetPassword = ({ email, goBack }) => {
     if (confirmPassword !== rest.password) {
       return toast.error("Password do not match!");
     }
+    resetPasswordRequest(rest)
 
     console.log(rest);
   };
@@ -66,7 +67,7 @@ export const FormResetPassword = ({ email, goBack }) => {
 
   return (
     <div className="border py-5 rounded shadow-lg p-3 ">
-      <Button variant="secondary" onClick={goBack}>
+      <Button variant="success" onClick={goBack}>
         {" "}
         &lt; Back{" "}
       </Button>

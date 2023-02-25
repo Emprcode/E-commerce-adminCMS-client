@@ -12,7 +12,7 @@ export const Header = () => {
   const { admin } = useSelector((state) => state.adminInfo);
 
   return (
-    <Navbar bg="warning" expand="md">
+    <Navbar bg="" expand="md" className="navbg">
       <Container>
         <div>
           {admin?._id && (
@@ -24,7 +24,7 @@ export const Header = () => {
             </Button>
           )}
 
-          <Link to="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand text-light fw-bold">
             Admin CMS
           </Link>
         </div>
@@ -35,12 +35,12 @@ export const Header = () => {
             {admin?._id ? (
               <>
                 <Link className="nav-link" to="/register">
-                  <i className="fa-solid fa-bell" title="Notification"></i>
+                  <i className="fa-solid fa-bell text-light" title="Notification"></i>
                 </Link>
 
                 <Link className="nav-link" to="/">
                   <i
-                    className="fa-solid fa-right-to-bracket"
+                    className="fa-solid fa-right-to-bracket text-light"
                     title="Logout"
                   ></i>
                 </Link>
@@ -48,10 +48,10 @@ export const Header = () => {
             ) : (
               <>
                 <Link className="nav-link" to="/">
-                  <i className="fa-solid fa-right-to-bracket"></i> Long
+                  <i className="fa-solid fa-right-to-bracket text-light"></i> 
                 </Link>
                 <Link className="nav-link" to="/register">
-                  <i className="fa-solid fa-pen-to-square"></i> Register
+                  <i className="fa-solid fa-pen-to-square text-light"></i> 
                 </Link>
               </>
             )}

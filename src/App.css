@@ -1,6 +1,9 @@
 .main {
   min-height: 60vh;
 }
+.navbg{
+  background: #031789db;
+}
 
 .verify-page {
   height: 80vh;

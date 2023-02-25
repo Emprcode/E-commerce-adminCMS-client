@@ -3,7 +3,7 @@ import { Alert } from "react-bootstrap";
 import Container from "react-bootstrap/esm/Container";
 import { FormOtpRequest } from "../../components/password-forms/FormOtpRequest";
 import { FormResetPassword } from "../../components/password-forms/FormResetPassword";
-import { fetchReqOtp } from "../../helper/axiosHelper";
+import { fetchReqOtp, fetchResetPassword } from "../../helper/axiosHelper";
 import AdminLayout from "../layout/AdminLayout";
 
 const ResetPassword = () => {
@@ -19,8 +19,10 @@ const ResetPassword = () => {
     data.status === "success" && setShowForm("reset");
   };
 
-  const resetPasswordRequest = (obj) => {
+  const resetPasswordRequest = async(obj) => {
     //call the axios
+    const result = await fetchResetPassword(obj)
+    setResponse(result);
   };
 
   const goBack = () => {
@@ -29,7 +31,7 @@ const ResetPassword = () => {
 
   const forms = {
     otp: <FormOtpRequest reqOtp={reqOtp} email={email} />,
-    reset: <FormResetPassword email={email} goBack={goBack} />,
+    reset: <FormResetPassword email={email} goBack={goBack} resetPasswordRequest={resetPasswordRequest} />,
   };
   return (
     <AdminLayout>
