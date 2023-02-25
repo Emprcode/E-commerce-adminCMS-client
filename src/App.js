@@ -7,6 +7,12 @@ import EmailVerify from "./pages/verify/EmailVerify";
 import { ToastContainer } from "react-toastify";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ResetPassword from "./pages/reset-password/ResetPassword";
+import Category from "./pages/category/Category";
+import Products from "./pages/product/Products";
+import Orders from "./pages/orders/Orders";
+import PaymentOptions from "./pages/payment-options/PaymentOptions";
+import Customers from "./pages/customers/Customers";
+import Setting from "./pages/setting/Setting";
 
 function App() {
   return (
@@ -21,6 +27,12 @@ function App() {
 
           {/* private routs */}
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/payment-options" element={<PaymentOptions />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/setting" element={<Setting />} />
         </Routes>
       </Browser>
       <ToastContainer />

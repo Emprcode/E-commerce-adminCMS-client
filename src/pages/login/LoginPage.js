@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 
-import { CustomInpute } from "../../components/customInpute/CustomInpute";
 import AdminLayout from "../layout/AdminLayout";
 
 import { useDispatch, useSelector } from "react-redux";
