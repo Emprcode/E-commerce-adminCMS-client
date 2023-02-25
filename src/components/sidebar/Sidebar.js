@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch, useSelector } from "react-redux";
-import { setSidebarShow } from "../../system/systemSlice";
+import { setSideBarShow } from "../../system/systemSlice";
 
-export const Sidebar = () => {
+export const SideBar = () => {
   const dispatch = useDispatch();
-  const { showSidebar } = useSelector((state) => state.system);
+  const { showSideBar } = useSelector((state) => state.system);
+
   return (
     <>
-      {/* <Button variant="primary" >
-        Launch
-      </Button> */}
-
       <Offcanvas
-        show={showSidebar}
-        onHide={() => dispatch(setSidebarShow(false))}>
+        show={showSideBar}
+        onHide={() => dispatch(setSideBarShow(false))}
+      >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>

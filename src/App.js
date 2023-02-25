@@ -1,27 +1,29 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { BrowserRouter as Browser, Routes, Route } from "react-router-dom";
 import Registration from "./pages/register/Registration";
 import LoginPage from "./pages/login/LoginPage";
 import EmailVerify from "./pages/verify/EmailVerify";
 import { ToastContainer } from "react-toastify";
-import DashBoard from "./pages/dashboard/DashBoard";
+import Dashboard from "./pages/dashboard/Dashboard";
 import ResetPassword from "./pages/reset-password/ResetPassword";
+
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <div className="">
+      <Browser>
         <Routes>
-          {/* public route */}
-          <Route path="/" element={<LoginPage />}></Route>
-          <Route path="/register" element={<Registration />}></Route>
-          <Route path="/verify" element={<EmailVerify />}></Route>
-          <Route path="/reset-password" element={<ResetPassword />}></Route>
+          {/* public routes */}
+          <Route path="/" element={<LoginPage />} />
+          <Route path="register" element={<Registration />} />
+          <Route path="/verify" element={<EmailVerify />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
 
-          {/* private route */}
-          <Route path="/dashboard" element={<DashBoard />}></Route>
+          {/* private routs */}
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
-      </BrowserRouter>
-      <ToastContainer/>
+      </Browser>
+      <ToastContainer />
     </div>
   );
 }

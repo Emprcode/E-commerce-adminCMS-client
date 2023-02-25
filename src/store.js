@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import adminReducer from "./pages/admin-user/adminUserSlice";
-import systemReducer from "./system/systemSlice";
 
+import adminReducer from "./pages/admin-user/adminUserSlic";
+import systemReducer from "./system/systemSlice";
 const store = configureStore({
   reducer: {
-    admin: adminReducer,
+    adminInfo: adminReducer,
     system: systemReducer,
   },
 });

@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  showSidebar: false,
+  showSideBar: false,
 };
 
-const systemSlice = createSlice({
+const adminSlice = createSlice({
   name: "system",
   initialState,
   reducers: {
-    setSidebarShow: (state, { payload = false }) => {
-      state.showSide = payload;
+    setSideBarShow: (state, { payload = false }) => {
+      state.showSideBar = payload;
     },
   },
 });
 
-const { reducer, actions } = systemSlice;
+const { reducer, actions } = adminSlice;
 
-export const { setSidebarShow } = actions;
+export const { setSideBarShow } = actions;
 
 export default reducer;

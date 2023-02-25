@@ -1,17 +1,17 @@
 import React from "react";
+import { SideBar } from "../../components/sidebar/SideBar";
 import Footer from "./Footer";
-import GlobalMsg from "./GlobalMsg";
 import { Header } from "./Header";
 
-const AdminLayout = ({ children }) => {
+const Dashobardlayout = ({ children }) => {
   return (
     <div>
-      <GlobalMsg />
       <Header />
+      <SideBar />
       <div className="main">{children}</div>
       <Footer />
     </div>
   );
 };
 
-export default AdminLayout;
+export default Dashobardlayout;

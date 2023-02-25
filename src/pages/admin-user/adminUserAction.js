@@ -1,19 +1,18 @@
-import { toast } from "react-toastify";
 import { fetchAdminLogin } from "../../helper/axiosHelper";
-import { setUser } from "./adminUserSlice";
+import { setUser, unSetUser } from "./adminUserSlic";
+import { toast } from "react-toastify";
 
-export const loginAdmin = (formData) => async (dispatch) => {
-  //call axios
-  const resultPromise = fetchAdminLogin(formData);
+export const loginAdmin = (frmDt) => async (dispatch) => {
+  //call axios to check if login is success
+  const resultPromise = fetchAdminLogin(frmDt);
   toast.promise(resultPromise, {
-    pending: "please wait......",
+    pending: "Please wait ...",
   });
+  const { status, message, admin } = await resultPromise;
 
   //show react toastify
-  const { status, message, result } = await resultPromise;
   toast[status](message);
 
-  //use dispatch
-
-  result?._id && dispatch(setUser(result));
+  // if login successful then we would receive user data which we need to send to state by using dispatch
+  admin?._id && dispatch(setUser(admin));
 };

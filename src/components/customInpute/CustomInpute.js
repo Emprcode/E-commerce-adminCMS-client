@@ -1,11 +1,11 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-export const CustomInputFields = ({ label, forwardref, ...rest }) => {
+export const CustomInpute = ({ label, ...rest }) => {
   return (
     <Form.Group className="mb-3">
       <Form.Label>{label}</Form.Label>
-      <Form.Control ref={forwardref} {...rest} />
+      <Form.Control {...rest} />
     </Form.Group>
   );
 };

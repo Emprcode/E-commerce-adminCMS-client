@@ -1,60 +1,55 @@
 import axios from "axios";
+const apiRoot = process.env.REACT_APP_ROOT_API;
+const adminAPI = apiRoot + "/admin";
 
-const apiUrl = process.env.REACT_APP_ROOT_API;
-const adminUrl = apiUrl + "/admin";
-
-const axiosProcessor = async ({ url, method, userObj }) => {
+export const axiosProcessor = async ({ url, method, objDt }) => {
   try {
     const { data } = await axios({
       method,
       url,
-      data: userObj,
+      data: objDt,
     });
-    // console.log(data);
     return data;
   } catch (error) {
     return {
-      status: "error",
+      status: error,
       message: error.message,
     };
   }
 };
-//register
 
-export const postAdminUser = (userObj) => {
+export const postAdminUser = async (objDt) => {
   const obj = {
     method: "post",
-    url: adminUrl,
-    userObj,
+    url: adminAPI,
+    objDt,
   };
   return axiosProcessor(obj);
 };
 
-//email verification
-export const verifyAdminUser = (userObj) => {
+export const verifyAdminUser = async (objDt) => {
   const obj = {
     method: "post",
-    url: adminUrl + "/email-verify",
-    userObj,
+    url: adminAPI + "/verify-email",
+    objDt,
   };
   return axiosProcessor(obj);
 };
 
-//admin login
-export const fetchAdminLogin = (userObj) => {
+export const fetchAdminLogin = async (objDt) => {
   const obj = {
     method: "post",
-    url: adminUrl + "/login",
-    userObj,
+    url: adminAPI + "/login",
+    objDt,
   };
   return axiosProcessor(obj);
 };
 
-export const fetchReqOtp = (userObj) => {
+export const fetchReqOtp = (objDt) => {
   const obj = {
     method: "post",
-    url: adminUrl + "/request-otp",
-    userObj,
+    url: adminAPI + "/request-otp",
+    objDt,
   };
   return axiosProcessor(obj);
 };

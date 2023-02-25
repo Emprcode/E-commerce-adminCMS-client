@@ -1,27 +1,46 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
-import { OtpRequestForm } from "../../components/password-forms/OtpRequestForm";
-import { ResetPasswordForm } from "../../components/password-forms/ResetPasswordForm";
+import { Alert } from "react-bootstrap";
+import Container from "react-bootstrap/esm/Container";
+import { FormOtpRequest } from "../../components/password-forms/FormOtpRequest";
+import { FormResetPassword } from "../../components/password-forms/FormResetPassword";
 import { fetchReqOtp } from "../../helper/axiosHelper";
-import { AdminLayout } from "../layout/AdminLayout";
+import AdminLayout from "../layout/AdminLayout";
 
 const ResetPassword = () => {
-  const [showForm, setShowForm] = useState("otp");
+  const [showForm, setShowForm] = useState("reset");
+  const [response, setResponse] = useState({});
+  const [email, setEmail] = useState("");
 
   const reqOtp = async (email) => {
+    setEmail(email);
     const data = await fetchReqOtp({ email });
-    console.log(data);
+    setResponse(data);
+
+    data.status === "success" && setShowForm("reset");
+  };
+
+  const resetPasswordRequest = (obj) => {
+    //call the axios
+  };
+
+  const goBack = () => {
+    setShowForm("otp");
   };
 
   const forms = {
-    otp: <OtpRequestForm reqOtp={reqOtp} />,
-    reset: <ResetPasswordForm />,
+    otp: <FormOtpRequest reqOtp={reqOtp} email={email} />,
+    reset: <FormResetPassword email={email} goBack={goBack} />,
   };
   return (
     <AdminLayout>
       <Container>
-        <div className="reset-password">
-          {forms[showForm] || "Check your syntax"}
+        {response.message && (
+          <Alert variant={response.status === "success" ? "success" : "danger"}>
+            {response.message}
+          </Alert>
+        )}
+        <div className="reset-password mt-5">
+          {forms[showForm] || "Seems programmers are sloppy"}
         </div>
       </Container>
     </AdminLayout>

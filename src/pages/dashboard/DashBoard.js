@@ -1,10 +1,8 @@
-import React from 'react'
-import DashBoardLayout from '../layout/DashBoardLayout'
+import React from "react";
+import Dashobardlayout from "../layout/Dashobardlayout";
 
-const DashBoard = () => {
-  return (
-    <DashBoardLayout>DashBoard</DashBoardLayout>
-  )
-}
+const Dashboard = () => {
+  return <Dashobardlayout>Dashboard</Dashobardlayout>;
+};
 
-export default DashBoard
+export default Dashboard;

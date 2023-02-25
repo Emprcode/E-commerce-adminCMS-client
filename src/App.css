@@ -1,19 +1,20 @@
-.main{
-    min-height: 60vh;
-}
-.navbar{
-    background: rgba(6, 13, 109, 0.959);
-    
-}
-.verify-page{
-    height: 50vh;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main {
+  min-height: 60vh;
 }
 
-.reg-page form, .reset-password {
-    width: 550px;
-    margin: auto;
+.verify-page {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-page form {
+  width: 450px;
+  margin: auto;
+}
+
+.reset-password {
+  width: 450px;
+  margin: auto;
 }
