@@ -20,9 +20,9 @@ export const Header = () => {
               variant="none"
               onClick={() => dispatch(setSideBarShow(true))}
             >
-              <i class="fa-solid fa-bars"></i>
+              <i class="fa-solid fa-bars font-light"></i>
             </Button>
-          )}
+          )}{" "}
 
           <Link to="/" className="navbar-brand text-light fw-bold">
             Admin CMS

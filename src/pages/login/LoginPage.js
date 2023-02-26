@@ -72,7 +72,7 @@ const LoginPage = () => {
               name="email"
               placeholder="smith "
               required
-              type="type"
+              type="text"
               class="form-control"
             />
           </div>

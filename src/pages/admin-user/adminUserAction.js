@@ -1,5 +1,5 @@
 import { fetchAdminLogin } from "../../helper/axiosHelper";
-import { setUser, unSetUser } from "./adminUserSlic";
+import { setUser } from "./adminUserSlic";
 import { toast } from "react-toastify";
 
 export const loginAdmin = (frmDt) => async (dispatch) => {

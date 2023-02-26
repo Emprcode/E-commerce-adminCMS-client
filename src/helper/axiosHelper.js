@@ -1,6 +1,7 @@
 import axios from "axios";
 const apiRoot = process.env.REACT_APP_ROOT_API;
 const adminAPI = apiRoot + "/admin";
+const categoryAPI = apiRoot + "/category";
 
 export const axiosProcessor = async ({ url, method, objDt }) => {
   try {
@@ -58,6 +59,25 @@ export const fetchResetPassword = (objDt) => {
     method: "patch",
     url: adminAPI + "/reset-password",
     objDt,
+  };
+  return axiosProcessor(obj);
+};
+
+//post category
+export const postcategory = (objDt) => {
+  const obj = {
+    method: "post",
+    url: categoryAPI,
+    objDt,
+  };
+  return axiosProcessor(obj);
+};
+//getcategory
+export const getcategory = () => {
+  const obj = {
+    method: "get",
+    url: categoryAPI,
+    
   };
   return axiosProcessor(obj);
 };

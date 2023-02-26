@@ -1,9 +1,9 @@
 import React from 'react'
-import AdminLayout from '../layout/AdminLayout'
+import Dashobardlayout from '../layout/Dashobardlayout'
 
 const Customers = () => {
   return (
-    <AdminLayout>Customers</AdminLayout>
+    <Dashobardlayout>Customers</Dashobardlayout>
   )
 }
 

@@ -48,8 +48,7 @@ export const SideBar = () => {
               <Link to="/setting">Setting</Link>{" "}
             </li>
           </ul>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          
         </Offcanvas.Body>
       </Offcanvas>
     </>
