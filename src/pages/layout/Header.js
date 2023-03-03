@@ -34,7 +34,7 @@ export const Header = () => {
           <Nav className="ms-auto">
             {admin?._id ? (
               <>
-                <Link className="nav-link" to="/register">
+                <Link className="nav-link" to="/notification">
                   <i className="fa-solid fa-bell text-light" title="Notification"></i>
                 </Link>
 
