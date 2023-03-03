@@ -73,11 +73,11 @@ export const postcategory = (objDt) => {
   return axiosProcessor(obj);
 };
 //getcategory
-export const getcategory = () => {
-  const obj = {
+export const fetchCategories = () => {
+  
+  return axiosProcessor({
     method: "get",
     url: categoryAPI,
     
-  };
-  return axiosProcessor(obj);
+  });
 };
