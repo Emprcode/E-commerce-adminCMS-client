@@ -22,7 +22,7 @@ export const CategoryForms = () => {
               placeholder="smith "
               required
               name="name"
-              class="form-control"
+              className="form-control"
             />
           </Col>
           <Col md="4">

@@ -20,7 +20,7 @@ export const Header = () => {
               variant="none"
               onClick={() => dispatch(setSideBarShow(true))}
             >
-              <i class="fa-solid fa-bars font-light"></i>
+              <i className="fa-solid fa-bars font-light"></i>
             </Button>
           )}{" "}
 

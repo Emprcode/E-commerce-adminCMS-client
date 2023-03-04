@@ -81,3 +81,12 @@ export const fetchCategories = () => {
     
   });
 };
+//getcategory
+export const updateCategory = (objDt) => {
+  
+  return axiosProcessor({
+    method: "put",
+    url: categoryAPI,
+    objDt,
+  });
+};

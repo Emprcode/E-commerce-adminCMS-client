@@ -20,31 +20,31 @@ export const SideBar = () => {
         <Offcanvas.Body>
           <ul className="sidebar-menu">
             <li>
-              <i class="fa-solid fa-house"></i>{" "}
+              <i className="fa-solid fa-house"></i>{" "}
               <Link to="/dashboard">Dashboard</Link>{" "}
             </li>
             <li>
-              <i class="fa-solid fa-boxes-stacked"></i>{" "}
+              <i className="fa-solid fa-boxes-stacked"></i>{" "}
               <Link to="/category">Category Management</Link>{" "}
             </li>
             <li>
-              <i class="fa-solid fa-box"></i>{" "}
+              <i className="fa-solid fa-box"></i>{" "}
               <Link to="/products">Products Management</Link>{" "}
             </li>
             <li>
-              <i class="fa-solid fa-bag-shopping"></i>{" "}
+              <i className="fa-solid fa-bag-shopping"></i>{" "}
               <Link to="/orders">Orders</Link>{" "}
             </li>
             <li>
-              <i class="fa-solid fa-credit-card"></i>{" "}
+              <i className="fa-solid fa-credit-card"></i>{" "}
               <Link to="/payment-options">Payment Options</Link>{" "}
             </li>
             <li>
-              <i class="fa-solid fa-users"></i>
+              <i className="fa-solid fa-users"></i>
               <Link to="/customers">Customer Management</Link>{" "}
             </li>
             <li>
-              <i class="fa-solid fa-gear"></i>{" "}
+              <i className="fa-solid fa-gear"></i>{" "}
               <Link to="/setting">Setting</Link>{" "}
             </li>
           </ul>
