@@ -90,3 +90,12 @@ export const updateCategory = (objDt) => {
     objDt,
   });
 };
+//delete category
+export const deleteCategory = (_id) => {
+  
+  return axiosProcessor({
+    method: "delete",
+    url: categoryAPI + "/" + _id,
+    
+  });
+};

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Form, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteCategoryAction,
   getCategories,
   updateCategoryAction,
 } from "../../pages/category/categoryAction";
@@ -50,6 +51,12 @@ export const CategoryTable = () => {
       console.log(_id, status, name);
     }
   };
+  const handleOnDelete = (_id) => {
+    if (window.confirm("Are you sure you want to delete this category")) {
+      dispatch(deleteCategoryAction(_id));
+    }
+  };
+
   return (
     <div className="shadow-lg p-3">
       <div className="d-flex justify-content-between mt-5">
@@ -80,9 +87,13 @@ export const CategoryTable = () => {
                     type="switch"
                     name="status"
                     id="custom-switch"
-                    disabled={selectedCat._id !== item?._id}
+                    disabled={selectedCat._id === item?._id ? false : true}
                     onChange={handleOnChange}
-                    checked={item.status === "active"}
+                    checked={
+                      selectedCat._id === item._id
+                        ? selectedCat.status === "active"
+                        : item.status === "active"
+                    }
                   />
 
                   {/* {editId === item?._id ? (
@@ -121,7 +132,11 @@ export const CategoryTable = () => {
                       onClick={() => setSelectedCat(item)}>
                       Edit
                     </Button>{" "}
-                    <Button variant="danger">Delete</Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => handleOnDelete(item._id)}>
+                      Delete
+                    </Button>
                   </td>
                 )}
               </tr>
