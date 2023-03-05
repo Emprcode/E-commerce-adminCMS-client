@@ -28,7 +28,6 @@ const LoginPage = () => {
       password: passRef.current.value,
     };
 
-    console.log(obj);
     dispatch(loginAdmin(obj));
   };
 

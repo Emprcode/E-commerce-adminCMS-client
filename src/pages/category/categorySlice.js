@@ -12,8 +12,7 @@ const categorySlice = createSlice({
       if (!state.length && !payload.length) 
       return;
       state.cats = payload;
-    },
-  
+    }
   },
 });
 

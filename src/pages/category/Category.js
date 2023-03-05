@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 
 import Dashobardlayout from "../layout/Dashobardlayout";
-import { CategoryForms } from "../../components/categoryComponents/CategoryForms";
+import { CategoryForms } from "../../components/formComponents/CategoryForms";
 import { CategoryTable } from "../../components/customTable/CategoryTable";
 const Category = () => {
   return (

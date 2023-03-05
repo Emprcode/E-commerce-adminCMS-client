@@ -2,6 +2,7 @@ import axios from "axios";
 const apiRoot = process.env.REACT_APP_ROOT_API;
 const adminAPI = apiRoot + "/admin";
 const categoryAPI = apiRoot + "/category";
+const paymentOptionsAPI = apiRoot + "/payment-options";
 
 export const axiosProcessor = async ({ url, method, objDt }) => {
   try {
@@ -98,4 +99,24 @@ export const deleteCategory = (_id) => {
     url: categoryAPI + "/" + _id,
     
   });
+};
+
+
+//post payment-options
+export const postPaymentOptions = (objDt) => {
+  const obj = {
+    method: "post",
+    url: paymentOptionsAPI,
+    objDt,
+  };
+  return axiosProcessor(obj);
+};
+//post payment-options
+export const fetchPaymentOptions = () => {
+  const obj = {
+    method: "get",
+    url: paymentOptionsAPI,
+    
+  };
+  return axiosProcessor(obj);
 };
