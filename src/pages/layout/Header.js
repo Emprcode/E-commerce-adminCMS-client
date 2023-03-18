@@ -6,11 +6,21 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import { setSideBarShow } from "../../system/systemSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { autoLogout } from "../admin-user/adminUserAction";
 export const Header = () => {
   const dispatch = useDispatch();
 
   const { admin } = useSelector((state) => state.adminInfo);
 
+
+
+  const handleOnLogout = () => {
+
+
+
+
+
+  }
   return (
     <Navbar bg="" expand="md" className="navbg">
       <Container>
@@ -38,10 +48,10 @@ export const Header = () => {
                   <i className="fa-solid fa-bell text-light" title="Notification"></i>
                 </Link>
 
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/" onClick={()=> dispatch(autoLogout())}>
                   <i
                     className="fa-solid fa-right-to-bracket text-light"
-                    title="Logout"
+                    title="Logout" 
                   ></i>
                 </Link>
               </>

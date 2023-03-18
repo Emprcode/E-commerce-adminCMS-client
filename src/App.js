@@ -13,6 +13,7 @@ import Orders from "./pages/orders/Orders";
 import PaymentOptions from "./pages/payment-options/PaymentOptions";
 import Customers from "./pages/customers/Customers";
 import Setting from "./pages/setting/Setting";
+import { RequireAuth } from "./components/requireAuth/RequireAuth";
 
 function App() {
   return (
@@ -21,18 +22,67 @@ function App() {
         <Routes>
           {/* public routes */}
           <Route path="/" element={<LoginPage />} />
-          <Route path="register" element={<Registration />} />
           <Route path="/verify" element={<EmailVerify />} />
           <Route path="/reset-password" element={<ResetPassword />} />
 
           {/* private routs */}
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/payment-options" element={<PaymentOptions />} />
-          <Route path="/customers" element={<Customers />} />
-          <Route path="/setting" element={<Setting />} />
+          <Route path="register" element={<Registration />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />{" "}
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/category"
+            element={
+              <RequireAuth>
+                <Category />{" "}
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <RequireAuth>
+                <Products />{" "}
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <RequireAuth>
+                <Orders />{" "}
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/payment-options"
+            element={
+              <RequireAuth>
+                <PaymentOptions />{" "}
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/customers"
+            element={
+              <RequireAuth>
+                <Customers />{" "}
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/setting"
+            element={
+              <RequireAuth>
+                <Setting />{" "}
+              </RequireAuth>
+            }
+          />
         </Routes>
       </Browser>
       <ToastContainer />

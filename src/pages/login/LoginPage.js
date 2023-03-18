@@ -4,21 +4,23 @@ import { Button, Form } from "react-bootstrap";
 import AdminLayout from "../layout/AdminLayout";
 
 import { useDispatch, useSelector } from "react-redux";
-import { loginAdmin } from "../admin-user/adminUserAction";
-import { useNavigate } from "react-router-dom";
+import { autoLogin, loginAdmin } from "../admin-user/adminUserAction";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation()
 
   const emailRef = useRef("");
   const passRef = useRef("");
 
   const { admin } = useSelector((state) => state.adminInfo);
 
+  const fromPath = location.state?.from?.pathname || "/dashboard"
   useEffect(() => {
-    admin?._id && navigate("/dashboard");
-  }, [admin?._id, navigate]);
+    admin?._id ? navigate(fromPath) : dispatch(autoLogin())
+  }, [admin?._id, navigate, fromPath, dispatch]);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();

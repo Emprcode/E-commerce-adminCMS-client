@@ -4,12 +4,18 @@ const adminAPI = apiRoot + "/admin";
 const categoryAPI = apiRoot + "/category";
 const paymentOptionsAPI = apiRoot + "/payment-options";
 
-export const axiosProcessor = async ({ url, method, objDt }) => {
+export const axiosProcessor = async ({ url, method, objDt, isPrivate }) => {
+  const headers = isPrivate
+    ? {
+        Authorization: sessionStorage.getItem("accessJWT"),
+      }
+    : null;
   try {
     const { data } = await axios({
       method,
       url,
       data: objDt,
+      headers,
     });
     return data;
   } catch (error) {
@@ -63,6 +69,25 @@ export const fetchResetPassword = (objDt) => {
   };
   return axiosProcessor(obj);
 };
+export const fetchAdminProfile = () => {
+  const obj = {
+    method: "get",
+    url: adminAPI,
+    isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
+export const logoutAdminProfile = () => {
+  const obj = {
+    method: "patch",
+    url: adminAPI + "/logout",
+    isPrivate: true,
+    token: localStorage.getItem("refreshJWT"),
+  };
+  return axiosProcessor(obj);
+};
+
+// category
 
 //post category
 export const postcategory = (objDt) => {
@@ -70,37 +95,37 @@ export const postcategory = (objDt) => {
     method: "post",
     url: categoryAPI,
     objDt,
+    isPrivate: true,
   };
   return axiosProcessor(obj);
 };
 //getcategory
 export const fetchCategories = () => {
-  
   return axiosProcessor({
     method: "get",
     url: categoryAPI,
-    
+
+    isPrivate: true,
   });
 };
 //getcategory
 export const updateCategory = (objDt) => {
-  
   return axiosProcessor({
     method: "put",
     url: categoryAPI,
     objDt,
+    isPrivate: true,
   });
 };
 //delete category
 export const deleteCategory = (_id) => {
-  
   return axiosProcessor({
     method: "delete",
     url: categoryAPI + "/" + _id,
-    
+
+    isPrivate: true,
   });
 };
-
 
 //post payment-options
 export const postPaymentOptions = (objDt) => {
@@ -108,6 +133,7 @@ export const postPaymentOptions = (objDt) => {
     method: "post",
     url: paymentOptionsAPI,
     objDt,
+    isPrivate: true,
   };
   return axiosProcessor(obj);
 };
@@ -116,7 +142,8 @@ export const fetchPaymentOptions = () => {
   const obj = {
     method: "get",
     url: paymentOptionsAPI,
-    
+
+    isPrivate: true,
   };
   return axiosProcessor(obj);
 };
