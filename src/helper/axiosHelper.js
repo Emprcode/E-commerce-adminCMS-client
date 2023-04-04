@@ -3,6 +3,7 @@ const apiRoot = process.env.REACT_APP_ROOT_API;
 const adminAPI = apiRoot + "/admin";
 const categoryAPI = apiRoot + "/category";
 const paymentOptionsAPI = apiRoot + "/payment-options";
+const productApi = apiRoot + "/product";
 
 export const axiosProcessor = async ({ url, method, objDt, isPrivate }) => {
   const headers = isPrivate
@@ -137,7 +138,7 @@ export const postPaymentOptions = (objDt) => {
   };
   return axiosProcessor(obj);
 };
-//post payment-options
+//fetch payment-options
 export const fetchPaymentOptions = () => {
   const obj = {
     method: "get",
@@ -147,3 +148,30 @@ export const fetchPaymentOptions = () => {
   };
   return axiosProcessor(obj);
 };
+
+
+//post new product
+
+export const postNewProduct = (objDt) => {
+const obj ={
+  method: "post",
+  url: productApi,
+  objDt,
+
+  isPrivate: true
+}
+
+return axiosProcessor(obj)
+}
+
+//fetch product
+
+export const fetchProducts = () => {
+  const obj ={
+    method:"get",
+    url: productApi,
+
+    isPrivate: true
+  }
+  return axiosProcessor(obj)
+}
