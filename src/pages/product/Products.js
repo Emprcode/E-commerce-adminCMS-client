@@ -1,10 +1,19 @@
-import React from 'react'
-import AdminLayout from '../layout/AdminLayout'
+import React from "react";
+import Dashobardlayout from "../layout/Dashobardlayout";
+import { Container } from "react-bootstrap";
 
 const Products = () => {
   return (
-    <AdminLayout>Products</AdminLayout>
-  )
-}
+    <Dashobardlayout>
+      <Container>
+        <h3 className="mt-3 text-center">Product Management</h3>
+        <hr />
+        {/* form */}
 
-export default Products
+        {/* table */}
+      </Container>
+    </Dashobardlayout>
+  );
+};
+
+export default Products;

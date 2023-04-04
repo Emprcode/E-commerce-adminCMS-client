@@ -8,7 +8,7 @@ const Category = () => {
   return (
     <Dashobardlayout>
       <Container className="mt-5">
-        <h3>Category Management</h3>
+        <h3 className="text-center">Category Management</h3>
         <hr />
         <CategoryForms />
 
