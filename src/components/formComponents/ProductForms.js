@@ -3,13 +3,17 @@ import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import { useDispatch } from "react-redux";
+import { addNewProduct } from "../../pages/product/productAction";
 
 export const ProductForms = () => {
+  const dispatch = useDispatch();
   const productRef = useRef("");
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const product = productRef.current.value;
+    dispatch(addNewProduct({ name: product }));
     console.log(product);
   };
 

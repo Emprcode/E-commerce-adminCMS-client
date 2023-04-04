@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { fetchProducts, postNewProduct } from "../../helper/axiosHelper";
-import { requestPending, setProducts } from "./ProductSlice"
+import { requestPending, setProducts } from "./productSlice";
+
 
 
 
