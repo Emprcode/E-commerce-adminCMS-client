@@ -9,13 +9,17 @@ import { addNewProduct } from "../../pages/product/productAction";
 export const ProductForms = () => {
   const dispatch = useDispatch();
   const productRef = useRef("");
-  const descriptionRef = useRef()
+  const descriptionRef = useRef("")
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const product = productRef.current.value;
-    dispatch(addNewProduct({ name: product }));
-    console.log(product);
+    const productObject ={
+
+       name : productRef.current.value,
+       description : descriptionRef.current.value
+    }
+    dispatch(addNewProduct( productObject));
+    console.log(productObject);
   };
 
   return (
@@ -24,7 +28,7 @@ export const ProductForms = () => {
         <Row className="m-3">
           <Col className="col-3">
             <Form.Control
-              placeholder="First name"
+              placeholder="Product name"
               ref={productRef}
               required
               name="name"

@@ -2,6 +2,7 @@ import React from "react";
 import Dashobardlayout from "../layout/Dashobardlayout";
 import { Container } from "react-bootstrap";
 import { ProductForms } from "../../components/formComponents/ProductForms";
+import { ProductTable } from "../../components/customTable/ProductTable";
 
 const Products = () => {
   return (
@@ -12,6 +13,7 @@ const Products = () => {
         {/* form */}
         <ProductForms />
         {/* table */}
+        <ProductTable/>
       </Container>
     </Dashobardlayout>
   );
