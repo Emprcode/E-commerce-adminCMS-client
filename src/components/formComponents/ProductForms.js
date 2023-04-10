@@ -18,7 +18,7 @@ export const ProductForms = () => {
        name : productRef.current.value,
        description : descriptionRef.current.value
     }
-    dispatch(addNewProduct( productObject));
+     dispatch(addNewProduct( productObject))
     console.log(productObject);
   };
 

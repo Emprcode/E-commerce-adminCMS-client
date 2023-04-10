@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Form, Table } from "react-bootstrap";
+import { Button, Form, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../pages/product/productAction";
+import { deleteProduct, getProducts } from "../../pages/product/productAction";
 
 export const ProductTable = () => {
   const { products } = useSelector((state) => state.product);
-  console.log(products);
   const dispatch = useDispatch();
 
   const [displayProducts, setDisplayProducts] = useState([]);
@@ -18,6 +17,12 @@ export const ProductTable = () => {
   }, [products, shouldFetch, dispatch]);
 
   console.log(displayProducts);
+
+  const handleOnDelete = (data) => {
+    if (window.confirm("Are you sure you want to delete this item")) {
+      dispatch(deleteProduct(data));
+    }
+  };
   return (
     <div>
       <div className="d-flex justify-content-between p-3">
@@ -44,7 +49,12 @@ export const ProductTable = () => {
                 <td>{item.status}</td>
                 <td>{item.name}</td>
                 <td>{item.description}</td>
-                <td></td>
+                <td>
+                  <Button variant="warning">Edit</Button>{" "}
+                  <Button variant="danger" onClick={() => handleOnDelete()}>
+                    Delete
+                  </Button>
+                </td>
               </tr>
             ))}
           </tbody>

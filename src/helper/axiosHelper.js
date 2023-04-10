@@ -109,7 +109,7 @@ export const fetchCategories = () => {
     isPrivate: true,
   });
 };
-//getcategory
+//updatecategory
 export const updateCategory = (objDt) => {
   return axiosProcessor({
     method: "put",
@@ -174,4 +174,18 @@ export const fetchProducts = () => {
     isPrivate: true
   }
   return axiosProcessor(obj)
+}
+
+//delete product
+
+export const deleteSingleProduct = (objDt) => {
+const obj = {
+  method: "delete",
+  url: productApi,
+  objDt,
+
+
+  isPrivate: true
+}
+return axiosProcessor(obj)
 }
