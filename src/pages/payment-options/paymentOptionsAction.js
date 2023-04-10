@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { postPaymentOptions, fetchPaymentOptions } from "../../helper/axiosHelper"
+import { postPaymentOptions, fetchPaymentOptions, deleteSiglePaymentOption } from "../../helper/axiosHelper"
 import { requestPending, setPaymentOption } from "./paymentOptionsSlice"
 
 
@@ -16,4 +16,12 @@ export const getPaymentOptions = ()=> async (dispatch) => {
    
     const {status, result} = await fetchPaymentOptions()
     status === "success"  && dispatch(setPaymentOption(result))
+}
+
+//delete payment options
+export const deletePaymentOptions = (data) => async(dispatch) => {
+    const {status, message}= await deleteSiglePaymentOption(data);
+    toast[status](message)
+
+    status === "success" && dispatch(getPaymentOptions())
 }

@@ -149,6 +149,20 @@ export const fetchPaymentOptions = () => {
   return axiosProcessor(obj);
 };
 
+//delete payment Options 
+export const deleteSiglePaymentOption =(_id)=> {
+  const obj ={
+    method:"delete",
+    url: paymentOptionsAPI + "/" + _id,
+
+
+    isPrivate: true
+
+  }
+  return axiosProcessor(obj)
+}
+
+
 
 //post new product
 
@@ -172,6 +186,17 @@ export const fetchProducts = () => {
     url: productApi,
 
     isPrivate: true
+  }
+  return axiosProcessor(obj)
+}
+
+//update product
+
+export const updateSingleProduct = (objDt)=> {
+  const obj ={
+    method:"put",
+    url:productApi,
+    objDt
   }
   return axiosProcessor(obj)
 }

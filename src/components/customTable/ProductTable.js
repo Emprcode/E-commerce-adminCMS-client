@@ -37,6 +37,7 @@ export const ProductTable = () => {
             <tr>
               <th>#</th>
               <th>status</th>
+              <th>status</th>
               <th>Name</th>
               <th>Description</th>
               <th></th>
@@ -46,7 +47,10 @@ export const ProductTable = () => {
             {displayProducts.map((item, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>
-                <td>{item.status}</td>
+
+                <td>
+                  <Form.Check type="switch" id="custom-switch" name="status" />
+                </td>
                 <td>{item.name}</td>
                 <td>{item.description}</td>
                 <td>

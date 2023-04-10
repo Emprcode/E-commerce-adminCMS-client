@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Form, Row } from "react-bootstrap";
+import { Button, Container, Form, Row } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
-import { getPaymentOptions } from "../../pages/payment-options/paymentOptionsAction";
+import { deletePaymentOptions, getPaymentOptions } from "../../pages/payment-options/paymentOptionsAction";
 
 export const PaymentOptionsTable = () => {
   const { paymentOption } = useSelector((state) => state.paymentOptions);
@@ -20,9 +20,16 @@ export const PaymentOptionsTable = () => {
     setDisplayPaymentOption(paymentOption);
   }, [paymentOption, shouldFetch, dispatch]);
 
+
+
+  const handleOnDelete = (_id) => {
+   if(window.confirm("Are you sure you want to delete this item?")){
+    dispatch(deletePaymentOptions(_id))
+   }
+  }
   console.log(paymentOption)
   return (
-    <div className="shadow-lg mt-3 ">
+    <Container className="shadow-lg mt-3 ">
       {/* <h2>Payment Options Available</h2> */}
       <div className="d-flex justify-content-between p-3">
         <div className="fw-bold">
@@ -52,11 +59,17 @@ export const PaymentOptionsTable = () => {
                 <td>{item.status}</td>
                 <td>{item.name}</td>
                 <td>{item.description}</td>
+                <td>
+                  <Button variant="warning">Edit</Button>{" "}
+                  <Button variant="danger" onClick={() => handleOnDelete(item._id)}>
+                    Delete
+                  </Button>
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
       </Row>
-    </div>
+    </Container>
   );
 };
