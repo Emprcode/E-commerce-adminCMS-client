@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Form, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getproducts } from "../../pages/product/productAction";
+import { getProducts } from "../../pages/product/productAction";
 
 export const ProductTable = () => {
-  const { product } = useSelector((state) => state.product);
-
+  const { products } = useSelector((state) => state.product);
+  console.log(products);
   const dispatch = useDispatch();
 
-  const { displayProduct, setDisplayProducts } = useState([]);
+  const { displayProducts, setDisplayProducts } = useState([]);
 
   useEffect(() => {
-    dispatch(getproducts());
-    setDisplayProducts(product);
-  }, [dispatch, product]);
+    !displayProducts.length && dispatch(getProducts());
+    setDisplayProducts(products);
+  }, [dispatch, products, setDisplayProducts]);
 
-  console.log(getproducts);
+  console.log(displayProducts);
   return (
     <div className="shadow-lg p-4 mt-5">
       <div className="d-flex justify-content-between p-3">
@@ -25,7 +25,7 @@ export const ProductTable = () => {
         </div>
       </div>
       <hr />
-      <Table striped bordered hover>
+      {/* <Table striped bordered hover>
         <thead>
           <tr>
             <th>#</th>
@@ -37,15 +37,18 @@ export const ProductTable = () => {
         </thead>
         <tbody>
           {displayProduct.map((item, i) => {
-            <tr key={i}>
-              <td>{i + 1}</td>
-              <td>{item.name}</td>
-              <td>{item.description}</td>
-              <td>{item.status}</td>
-            </tr>;
+            return (
+              <tr key={i}>
+                <td>{i + 1}</td>
+                <td>{item.status}</td>
+                <td>{item.name}</td>
+                <td>{item.description}</td>
+                <td></td>
+              </tr>
+            );
           })}
         </tbody>
-      </Table>
+      </Table> */}
     </div>
   );
 };

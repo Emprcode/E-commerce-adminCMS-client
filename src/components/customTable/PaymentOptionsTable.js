@@ -20,6 +20,7 @@ export const PaymentOptionsTable = () => {
     setDisplayPaymentOption(paymentOption);
   }, [paymentOption, shouldFetch, dispatch]);
 
+  console.log(paymentOption)
   return (
     <div className="shadow-lg mt-3 ">
       {/* <h2>Payment Options Available</h2> */}

@@ -66,26 +66,26 @@ const LoginPage = () => {
             <CustomInpute key={item.name} {...item} />
           ))} */}
 
-          <div class="mb-3">
-            <label class="form-label">Email</label>
+          <div className="mb-3">
+            <label className="form-label">Email</label>
             <input
               ref={emailRef}
               name="email"
               placeholder="smith "
               required
               type="text"
-              class="form-control"
+              className="form-control"
             />
           </div>
-          <div class="mb-3">
-            <label class="form-label">Password</label>
+          <div className="mb-3">
+            <label className="form-label">Password</label>
             <input
               ref={passRef}
               name="password"
               placeholder="***** "
               required
               type="password"
-              class="form-control"
+              className="form-control"
             />
           </div>
 

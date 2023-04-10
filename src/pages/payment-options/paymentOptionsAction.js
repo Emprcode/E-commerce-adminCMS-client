@@ -15,6 +15,5 @@ export const addNewPaymentOptions = (data)=> async (dispatch) => {
 export const getPaymentOptions = ()=> async (dispatch) => {
    
     const {status, result} = await fetchPaymentOptions()
-
     status === "success"  && dispatch(setPaymentOption(result))
 }

@@ -13,7 +13,7 @@ export const addNewProduct = (data) => async (dispatch) => {
     const {status, message} = await postNewProduct(data)
     toast[status](message)
 
-    status === "success" && dispatch(getproducts())
+    status === "success" && dispatch(getProducts())
 
 
 
@@ -22,8 +22,9 @@ export const addNewProduct = (data) => async (dispatch) => {
 //getproducts 
 
 
-export const getproducts = () => async(dispatch) => {
+export const getProducts = () => async(dispatch) => {
     const {status, result} = await fetchProducts()
+console.log(status, result)
 
     status === "success" && dispatch(setProducts(result))
 }
