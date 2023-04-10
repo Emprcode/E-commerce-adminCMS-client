@@ -8,36 +8,37 @@ export const ProductTable = () => {
   console.log(products);
   const dispatch = useDispatch();
 
-  const { displayProducts, setDisplayProducts } = useState([]);
+  const [displayProducts, setDisplayProducts] = useState([]);
+  const [shouldFetch, setShouldFetch] = useState(true);
 
   useEffect(() => {
-    !displayProducts.length && dispatch(getProducts());
+    shouldFetch && dispatch(getProducts());
+    setShouldFetch(false);
     setDisplayProducts(products);
-  }, [dispatch, products, setDisplayProducts]);
+  }, [products, shouldFetch, dispatch]);
 
   console.log(displayProducts);
   return (
-    <div className="shadow-lg p-4 mt-5">
+    <div>
       <div className="d-flex justify-content-between p-3">
-        <p className="fw-bold">10 items found!</p>
-        <div>
+        <p>{displayProducts.length} Items found!</p>
+        <div className="col-4">
           <Form.Control placeholder="search here" />
         </div>
       </div>
-      <hr />
-      {/* <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Status</th>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {displayProduct.map((item, i) => {
-            return (
+      <div>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>status</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {displayProducts.map((item, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>
                 <td>{item.status}</td>
@@ -45,10 +46,10 @@ export const ProductTable = () => {
                 <td>{item.description}</td>
                 <td></td>
               </tr>
-            );
-          })}
-        </tbody>
-      </Table> */}
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };
