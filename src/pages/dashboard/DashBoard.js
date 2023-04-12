@@ -20,9 +20,42 @@ const Dashboard = () => {
           </div>
         </div>
         <Row className=" p-4 gap-5 ">
-          <Col className="card1">sdad</Col>
-          <Col className="card2">adsad</Col>
-          <Col className="card3">adsa</Col>
+          <Col className="card1 p-3 rounded">
+            <div>
+              <div className="d-flex justify-content-around">
+                <p className="p-2">
+                  Weekly Sales <i class="fa-solid fa-chart-mixed"></i>
+                </p>
+              </div>
+
+              <h4 className="fw-bold"> $ 50,000</h4>
+              <p className="p-3">Increased by 40%</p>
+            </div>
+          </Col>
+          <Col className="card2 p-3 rounded">
+            <div>
+              <div className="d-flex justify-content-around">
+                <p className="p-2">
+                  Weekly orders <i class="fa-solid fa-chart-mixed"></i>
+                </p>
+              </div>
+
+              <h4 className="fw-bold">24,567</h4>
+              <p className="p-3">Decreased by 10%</p>
+            </div>
+          </Col>
+          <Col className="card3 p-3 rounded">
+            <div>
+              <div className="d-flex justify-content-around">
+                <p className="p-2">
+                  Visitors online <i class="fa-solid fa-chart-mixed"></i>
+                </p>
+              </div>
+
+              <h4 className="fw-bold"> 98,895</h4>
+              <p className="p-3">Increased by 20%</p>
+            </div>
+          </Col>
         </Row>
       </Container>
     </Dashobardlayout>
