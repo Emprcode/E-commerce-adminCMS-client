@@ -71,7 +71,7 @@ const LoginPage = () => {
             <input
               ref={emailRef}
               name="email"
-              placeholder="smith "
+              placeholder="smith@gmail.com "
               required
               type="text"
               className="form-control"
