@@ -12,15 +12,7 @@ export const Header = () => {
 
   const { admin } = useSelector((state) => state.adminInfo);
 
-
-
-  const handleOnLogout = () => {
-
-
-
-
-
-  }
+  const handleOnLogout = () => {};
   return (
     <Navbar bg="" expand="md" className="navbg">
       <Container>
@@ -28,12 +20,10 @@ export const Header = () => {
           {admin?._id && (
             <Button
               variant="none"
-              onClick={() => dispatch(setSideBarShow(true))}
-            >
+              onClick={() => dispatch(setSideBarShow(true))}>
               <i className="fa-solid fa-bars font-light"></i>
             </Button>
           )}{" "}
-
           <Link to="/" className="navbar-brand text-light fw-bold">
             Admin CMS
           </Link>
@@ -45,23 +35,27 @@ export const Header = () => {
             {admin?._id ? (
               <>
                 <Link className="nav-link" to="/notification">
-                  <i className="fa-solid fa-bell text-light" title="Notification"></i>
+                  <i
+                    className="fa-solid fa-bell text-light"
+                    title="Notification"></i>
                 </Link>
 
-                <Link className="nav-link" to="/" onClick={()=> dispatch(autoLogout())}>
+                <Link
+                  className="nav-link"
+                  to="/"
+                  onClick={() => dispatch(autoLogout())}>
                   <i
                     className="fa-solid fa-right-to-bracket text-light"
-                    title="Logout" 
-                  ></i>
+                    title="Logout"></i>
                 </Link>
               </>
             ) : (
               <>
                 <Link className="nav-link" to="/">
-                  <i className="fa-solid fa-right-to-bracket text-light"></i> 
+                  <i className="fa-solid fa-right-to-bracket text-light"></i>
                 </Link>
                 <Link className="nav-link" to="/register">
-                  <i className="fa-solid fa-pen-to-square text-light"></i> 
+                  <i className="fa-solid fa-pen-to-square text-light"></i>
                 </Link>
               </>
             )}
