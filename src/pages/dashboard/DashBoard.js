@@ -56,7 +56,7 @@ const Dashboard = () => {
               <p className="p-3">Increased by 20%</p>
             </div>
           </Col>
-          <Col className="card3 p-3 rounded">
+          <Col className="card4 p-3 rounded">
             <div>
               <div className="d-flex justify-content-around">
                 <p className="p-2">
