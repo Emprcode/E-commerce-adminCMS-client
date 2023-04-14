@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import Dashobardlayout from "../layout/Dashobardlayout";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
+import { Chart } from "./Chart";
 
 const Dashboard = () => {
   const { admin } = useSelector((state) => state.adminInfo);
@@ -56,6 +57,9 @@ const Dashboard = () => {
               <p className="p-3">Increased by 20%</p>
             </div>
           </Col>
+        </Row>
+        <Row>
+          <Chart />
         </Row>
       </Container>
     </Dashobardlayout>
