@@ -56,18 +56,6 @@ const Dashboard = () => {
               <p className="p-3">Increased by 20%</p>
             </div>
           </Col>
-          <Col className="card4 p-3 rounded">
-            <div>
-              <div className="d-flex justify-content-around">
-                <p className="p-2">
-                  Visitors online <i class="fa-solid fa-chart-mixed"></i>
-                </p>
-              </div>
-
-              <h4 className="fw-bold"> 98,895</h4>
-              <p className="p-3">Increased by 20%</p>
-            </div>
-          </Col>
         </Row>
       </Container>
     </Dashobardlayout>
