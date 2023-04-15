@@ -56,7 +56,9 @@ export const PaymentOptionsTable = () => {
             {displayPaymentOption?.map((item, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>
-                <td>{item.status}</td>
+                <td>
+                  <Form.Check type="switch" id="custom-switch" name="status" />
+                </td>
                 <td>{item.name}</td>
                 <td>{item.description}</td>
                 <td>

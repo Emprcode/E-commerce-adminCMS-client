@@ -7,9 +7,9 @@ import { ProductTable } from "../../components/customTable/ProductTable";
 const Products = () => {
   return (
     <Dashobardlayout>
-      <Container>
-        <h3 className="mt-3 text-center">Product Management</h3>
-        <hr />
+      <Container className="p-5">
+        <h3 className="p-3 fw-bold text-center">Product Management</h3>
+       
         {/* form */}
         <ProductForms />
         {/* table */}

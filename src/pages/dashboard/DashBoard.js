@@ -89,7 +89,7 @@ const Dashboard = () => {
             </Col>
           </Row>
           <Row className=" mt-5 p-4 gap-5 ">
-            <Col className="bg-light rounded p-4">
+            <Col className="bg-light rounded p-4 shadow-lg">
               <div>
                 <h6 className="fw-bold tect-center p-2">
                   {" "}
@@ -98,7 +98,7 @@ const Dashboard = () => {
               </div>
               <BarChart chartData={userData} />
             </Col>
-            <Col className="bg-light text-center rounded p-4">
+            <Col className="bg-light text-center rounded p-4 shadow-lg">
               <div>
                 <h6 className="fw-bold tect-center p-2"> Traffic Sources</h6>
               </div>

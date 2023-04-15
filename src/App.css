@@ -1,4 +1,12 @@
+.main {
+  min-height: 70vh;
+  
 
+}
+
+.dashlayout{
+  background: #f2edf3;
+}
 .navbg{
   background: #031789db;
 }

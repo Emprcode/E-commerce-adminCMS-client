@@ -7,8 +7,8 @@ import Dashobardlayout from "../layout/Dashobardlayout";
 const PaymentOptions = () => {
   return (
     <Dashobardlayout>
-      <Container className="mt-3 text-center">
-        <h3>Payment Options</h3>
+      <Container className=" p-4 text-center">
+        <h2 className="fw-bold">Payment Options</h2>
         {/* form */}
         <PaymentOptionsForm />
 

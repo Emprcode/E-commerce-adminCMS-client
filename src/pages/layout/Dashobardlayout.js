@@ -8,7 +8,7 @@ const Dashobardlayout = ({ children }) => {
     <div>
       <Header />
       <SideBar />
-      <div className="main">{children}</div>
+      <div className="main dashlayout">{children}</div>
       <Footer />
     </div>
   );

@@ -7,9 +7,9 @@ import { CategoryTable } from "../../components/customTable/CategoryTable";
 const Category = () => {
   return (
     <Dashobardlayout>
-      <Container className="mt-5">
-        <h3 className="text-center">Category Management</h3>
-        <hr />
+      <Container className="p-5">
+        <h3 className="text-center mb-3 fw-bold ">Category Management</h3>
+    
         <CategoryForms />
 
         {/* table */}

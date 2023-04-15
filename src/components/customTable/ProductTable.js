@@ -25,7 +25,7 @@ export const ProductTable = () => {
   };
   return (
     <div>
-      <div className="d-flex justify-content-between p-3">
+      <div className="d-flex justify-content-between p-3 mt-5">
         <p>{displayProducts.length} Items found!</p>
         <div className="col-4">
           <Form.Control placeholder="search here" />
@@ -37,7 +37,7 @@ export const ProductTable = () => {
             <tr>
               <th>#</th>
               <th>status</th>
-              <th>status</th>
+              
               <th>Name</th>
               <th>Description</th>
               <th></th>
