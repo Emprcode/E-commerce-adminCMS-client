@@ -1,13 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Dashboard.css";
 import Dashobardlayout from "../layout/Dashobardlayout";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import { Chart } from "./Chart";
+import { UserData } from "./DataSet";
+import { BarChart } from "./charts/BarChart";
 
 const Dashboard = () => {
   const { admin } = useSelector((state) => state.adminInfo);
   console.log(admin);
+
+  const [userData, setUserData] = useState({
+    labels: UserData.map((data) => data.month),
+    datasets: [
+      {
+        label: "Australia",
+        data: UserData.map((data) => data.Australia),
+        backgroundColor: ["rgba(154, 85, 255, 1)"],
+        borderColor: "black",
+        borderWidth: 0,
+      },
+      {
+        label: "USA",
+        data: UserData.map((data) => data.USA),
+        backgroundColor: ["rgba(254, 112, 150, 1)"],
+        borderColor: "black",
+        borderWidth: 0,
+      },
+      {
+        label: "Europe",
+        data: UserData.map((data) => data.Europe),
+        backgroundColor: ["rgba(54, 215, 232, 1)"],
+        borderColor: "black",
+        borderWidth: 0,
+      },
+    ],
+  });
   return (
     <Dashobardlayout>
       <Container className="p-4">
@@ -58,8 +86,16 @@ const Dashboard = () => {
             </div>
           </Col>
         </Row>
-        <Row>
-          <Chart />
+        <Row className="p-4">
+          <Col>
+            <div>
+              <h4 className="fw-bold tect-center">
+                {" "}
+                Visit And Sales Statistics
+              </h4>
+            </div>
+            <BarChart chartData={userData} />
+          </Col>
         </Row>
       </Container>
     </Dashobardlayout>
