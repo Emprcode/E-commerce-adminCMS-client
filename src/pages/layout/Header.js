@@ -11,8 +11,8 @@ export const Header = () => {
   const dispatch = useDispatch();
 
   const { admin } = useSelector((state) => state.adminInfo);
+  console.log(admin);
 
-  const handleOnLogout = () => {};
   return (
     <Navbar bg="" expand="md" className="navbg">
       <Container>
@@ -31,9 +31,12 @@ export const Header = () => {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto gap-3">
             {admin?._id ? (
               <>
+                <Link className="nav-link" to="/profile">
+                  <i class="fa-solid fa-user text-light "></i>
+                </Link>
                 <Link className="nav-link" to="/notification">
                   <i
                     className="fa-solid fa-bell text-light"

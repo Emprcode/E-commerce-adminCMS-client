@@ -51,7 +51,7 @@ const Dashboard = () => {
             </div>
           </div>
           <Row className=" p-4 gap-5 ">
-            <Col className="card1 p-3 rounded">
+            <Col className="card1 p-3 rounded text-white">
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
@@ -63,7 +63,7 @@ const Dashboard = () => {
                 <p className="p-3">Increased by 40%</p>
               </div>
             </Col>
-            <Col className="card2 p-3 rounded">
+            <Col className="card2 p-3 rounded text-white">
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
@@ -75,7 +75,7 @@ const Dashboard = () => {
                 <p className="p-3">Decreased by 10%</p>
               </div>
             </Col>
-            <Col className="card3 p-3 rounded">
+            <Col className="card3 p-3 rounded text-white">
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
