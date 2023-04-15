@@ -3,8 +3,9 @@ import "./Dashboard.css";
 import Dashobardlayout from "../layout/Dashobardlayout";
 import { useSelector } from "react-redux";
 import { Container, Row, Col } from "react-bootstrap";
-import { UserData } from "./DataSet";
+import { UserData } from "./charts/DataSet";
 import { BarChart } from "./charts/BarChart";
+import { PieChart } from "./charts/PieCharts";
 
 const Dashboard = () => {
   const { admin } = useSelector((state) => state.adminInfo);
@@ -95,6 +96,9 @@ const Dashboard = () => {
               </h4>
             </div>
             <BarChart chartData={userData} />
+          </Col>
+          <Col>
+            <PieChart />
           </Col>
         </Row>
       </Container>
