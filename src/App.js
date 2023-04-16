@@ -14,6 +14,8 @@ import PaymentOptions from "./pages/payment-options/PaymentOptions";
 import Customers from "./pages/customers/Customers";
 import Setting from "./pages/setting/Setting";
 import { RequireAuth } from "./components/requireAuth/RequireAuth";
+import Items  from "./pages/items/Items";
+import { NewItems } from "./pages/items/NewItems";
 
 function App() {
   return (
@@ -48,6 +50,22 @@ function App() {
             element={
               <RequireAuth>
                 <Products />{" "}
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/items"
+            element={
+              <RequireAuth>
+                <Items />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/items/newitems"
+            element={
+              <RequireAuth>
+                <NewItems />
               </RequireAuth>
             }
           />

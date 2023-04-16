@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-
 import AdminLayout from "../layout/AdminLayout";
-
 import { useDispatch, useSelector } from "react-redux";
 import { autoLogin, loginAdmin } from "../admin-user/adminUserAction";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -33,24 +31,7 @@ const LoginPage = () => {
     dispatch(loginAdmin(obj));
   };
 
-  // const inputs = [
-  //   {
-  //     label: "Email",
-  //     name: "email",
-  //     type: "type",
-  //     placeholder: "smith ",
-  //     required: true,
-  //     // forwardRef: emailRef,
-  //   },
-  //   {
-  //     label: "Password",
-  //     name: "password",
-  //     type: "password",
-  //     placeholder: "xxxxx ",
-  //     required: true,
-  //     // forwardRef: passRef,
-  //   },
-  // ];
+
 
   return (
     <AdminLayout>
@@ -59,7 +40,7 @@ const LoginPage = () => {
           onSubmit={handleOnSubmit}
           className="border mt-5 p-3 rounded shadow-lg pt-5"
         >
-          <h3 className="mb-3 text-center">Welcome Back!</h3>
+          <h2 className="mb-3 text-center fw-bold">Welcome!</h2>
           <hr className="mb-5" />
 
           {/* {inputs.map((item) => (

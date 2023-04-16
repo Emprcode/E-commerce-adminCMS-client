@@ -32,6 +32,10 @@ export const SideBar = () => {
               <Link onClick={() => dispatch(setSideBarShow(false))} to="/products">Products Management</Link>{" "}
             </li>
             <li>
+              <i className="fa-solid fa-box"></i>{" "}
+              <Link onClick={() => dispatch(setSideBarShow(false))} to="/items">Products / Items</Link>{" "}
+            </li>
+            <li>
               <i className="fa-solid fa-bag-shopping"></i>{" "}
               <Link  onClick={() => dispatch(setSideBarShow(false))} to="/orders">Orders</Link>{" "}
             </li>
