@@ -4,8 +4,19 @@
 
 }
 
-.dashlayout{
+/* .dashside{
+  position: absolute;
+  left: 25rem;
+}
+.dashmain{
+  position: relative;
+  width: 100% !important;
+} */
+
+.dashbg{
   background: #f2edf3;
+ 
+
 }
 .navbg{
   background: #031789db;

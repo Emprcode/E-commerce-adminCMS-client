@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto";
+// import { Chart as ChartJS } from "chart.js/auto";
 
 const PieChartData = [
   {
@@ -23,7 +23,7 @@ export const PieChart = () => {
       {
         label: "Search Engines",
         data: PieChartData.map((data) => data.SearchEngines),
-        backgroundColor: ["rgba(154, 85, 255, 1)"],
+        backgroundColor: ["rgba(154, 85, 255, 1)", "rgba(254, 112, 150, 1)", "rgba(54, 215, 232, 1)"],
         borderColor: "black",
         borderWidth: 0,
       },

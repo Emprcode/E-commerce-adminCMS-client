@@ -17,13 +17,16 @@ export const Header = () => {
     <Navbar bg="" expand="md" className="navbg">
       <Container>
         <div>
-          {admin?._id && (
+          {admin?._id && ( 
             <Button
               variant="none"
-              onClick={() => dispatch(setSideBarShow(true))}>
+              onClick={() => dispatch(setSideBarShow(true))}
+              
+              
+              >
               <i className="fa-solid fa-bars font-light"></i>
             </Button>
-          )}{" "}
+          )}
           <Link to="/" className="navbar-brand text-light fw-bold">
             Admin CMS
           </Link>

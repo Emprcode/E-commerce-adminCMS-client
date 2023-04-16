@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { UserData } from "./charts/DataSet";
 import { BarChart } from "./charts/BarChart";
 import { PieChart } from "./charts/PieCharts";
+import { RecentUpdatesTable } from "./RecentUpdatesTable";
 
 const Dashboard = () => {
   const { admin } = useSelector((state) => state.adminInfo);
@@ -51,7 +52,7 @@ const Dashboard = () => {
             </div>
           </div>
           <Row className=" p-4 gap-5 ">
-            <Col className="card1 p-3 rounded text-white">
+            <Col className="card1 p-3 rounded ">
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
@@ -63,7 +64,7 @@ const Dashboard = () => {
                 <p className="p-3">Increased by 40%</p>
               </div>
             </Col>
-            <Col className="card2 p-3 rounded text-white">
+            <Col className="card2 p-3 rounded ">
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
@@ -75,7 +76,7 @@ const Dashboard = () => {
                 <p className="p-3">Decreased by 10%</p>
               </div>
             </Col>
-            <Col className="card3 p-3 rounded text-white">
+            <Col className="card3 p-3 rounded ">
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
@@ -108,6 +109,9 @@ const Dashboard = () => {
                 <PieChart />
               </div>
             </Col>
+          </Row>
+          <Row className="bg-light p-5 mt-4 rounded">
+            <RecentUpdatesTable/>
           </Row>
         </Container>
       </div>

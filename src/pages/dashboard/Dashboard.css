@@ -1,5 +1,6 @@
 .dashcolor{
     background: #f2edf3;
+    width: 100% !important;
 }
 
 
@@ -15,4 +16,30 @@
 }
 .card4{
     background: linear-gradient(to right, #84d9d2, #07cdae)
+}
+.progress{
+    background: linear-gradient(to right, #f6e384, #ffd500);
+    height: 1.9rem !important;
+}
+.badge{
+    
+        width: 8rem;
+        border-radius: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+}
+
+.done{
+    background: linear-gradient(to right, #84d9d2, #07cdae);
+    height: 1.9rem !important;
+}
+.onhold{
+    background: linear-gradient(to right, #90caf9, #047edf 99%);
+    height: 1.9rem !important;
+}
+.rejected{
+    background: linear-gradient(to right, #ffbf96, #fe7096);
+    height: 1.9rem !important;
 }

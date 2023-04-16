@@ -3,13 +3,18 @@ import { SideBar } from "../../components/sidebar/SideBar";
 import Footer from "./Footer";
 import { Header } from "./Header";
 
+
 const Dashobardlayout = ({ children }) => {
   return (
-    <div>
+    <div className="">
       <Header />
-      <SideBar />
-      <div className="main dashlayout">{children}</div>
-      <Footer />
+      
+
+        
+          <SideBar />
+          <div className="main dashbg">{children}</div>
+          <Footer />
+    
     </div>
   );
 };
