@@ -4,6 +4,7 @@ const adminAPI = apiRoot + "/admin";
 const categoryAPI = apiRoot + "/category";
 const paymentOptionsAPI = apiRoot + "/payment-options";
 const productApi = apiRoot + "/product";
+const itemsApi = apiRoot + "/items";
 
 export const axiosProcessor = async ({ url, method, objDt, isPrivate }) => {
   const headers = isPrivate
@@ -213,4 +214,17 @@ const obj = {
   isPrivate: true
 }
 return axiosProcessor(obj)
+}
+
+
+//add new items
+export const postItems = (objDt)=> {
+  const obj ={
+    method:"post",
+    url:itemsApi,
+    objDt,
+
+    isPrivate: true
+  }
+  return axiosProcessor(obj)
 }
