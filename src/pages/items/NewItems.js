@@ -7,8 +7,9 @@ import { postItemsAction } from "./ItemsAction";
 
 export const NewItems = () => {
   const [formDt, SetFormDt] = useState({});
+  const [newImages, setNewImages] = useState([]);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const inputes = [
     {
       name: "name",
@@ -60,14 +61,15 @@ export const NewItems = () => {
       as: "textarea",
       rows: "10",
       placeholder: "write info here",
-      required: "true",
+      required: true,
     },
     {
       name: "images",
       label: "Images",
       type: "file",
       multiple: true,
-      required: "true",
+      accept: "image/*",
+      required: true,
     },
   ];
 
@@ -80,10 +82,20 @@ export const NewItems = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const {images, ...rest} = formDt;
+    const { images, ...rest } = formDt;
+    const formData = new FormData();
 
- 
-    dispatch(postItemsAction(rest))
+    for (let key in rest) {
+      formData.append(key, rest[key]);
+      newImages.length &&
+        [...newImages].map((item) => formData.append("images", item));
+    }
+    dispatch(postItemsAction(formData));
+  };
+
+  const handleOnImageUpload = (e) => {
+    const { files } = e.target;
+    setNewImages(files);
   };
 
   return (
@@ -93,7 +105,13 @@ export const NewItems = () => {
         <hr />
         <Form onSubmit={handleOnSubmit}>
           {inputes.map((item, i) => (
-            <CustomInpute key={i} {...item} onChange={handleOnChange} />
+            <CustomInpute
+              key={i}
+              {...item}
+              onChange={
+                item.name === "images" ? handleOnImageUpload : handleOnChange
+              }
+            />
           ))}
           <div className="d-grid">
             <Button type="submit" variant="info">
