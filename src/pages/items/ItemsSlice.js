@@ -13,6 +13,7 @@ const itemsSlice = createSlice({
             state.isLoading = true
         },
         setItems: (state, action)=> {
+            
             state.setItems = action.payload
             state.isLoading = false
         },

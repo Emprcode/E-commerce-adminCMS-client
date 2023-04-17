@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import Dashobardlayout from "../layout/Dashobardlayout";
 import { CustomInpute } from "../../components/customInpute/CustomInpute";
 import { Button, Container, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { postItemsAction } from "./ItemsAction";
 
 export const NewItems = () => {
-  const [formData, SetFormData] = useState({});
+  const [formDt, SetFormDt] = useState({});
+
+  const dispatch = useDispatch()
   const inputes = [
     {
       name: "name",
@@ -69,14 +73,17 @@ export const NewItems = () => {
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    SetFormData({
-      ...formData,
+    SetFormDt({
+      ...formDt,
       [name]: value,
     });
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const {images, ...rest} = formDt;
+
+ 
+    dispatch(postItemsAction(rest))
   };
 
   return (

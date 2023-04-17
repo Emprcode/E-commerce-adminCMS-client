@@ -216,7 +216,7 @@ const obj = {
 return axiosProcessor(obj)
 }
 
-
+// ##### ______Items
 //add new items
 export const postItems = (objDt)=> {
   const obj ={
@@ -228,3 +228,14 @@ export const postItems = (objDt)=> {
   }
   return axiosProcessor(obj)
 }
+
+//fetch items
+
+export const fetchItems = () =>{
+  const obj = {
+    method: "get",
+    url: itemsApi,
+    isPrivate : true
+  }
+  return axiosProcessor(obj)
+} 
