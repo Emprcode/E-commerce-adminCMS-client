@@ -20,6 +20,7 @@ const Items = () => {
           </Link>
         </div>
         <hr />
+        {/* Table */}
         <ItemsTable />
       </Container>
     </Dashobardlayout>
