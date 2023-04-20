@@ -82,14 +82,15 @@ export const NewItems = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    const { images, ...rest } = formDt;
     const formData = new FormData();
 
-    for (let key in rest) {
-      formData.append(key, rest[key]);
+    for (let key in formDt) {
+      formData.append(key, formDt[key]);
+
       newImages.length &&
         [...newImages].map((item) => formData.append("images", item));
     }
+    // console.log(newImages.length);
     dispatch(postItemsAction(formData));
   };
 
