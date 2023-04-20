@@ -239,3 +239,26 @@ export const fetchItems = () =>{
   }
   return axiosProcessor(obj)
 } 
+//update items
+
+export const updateItems = (objDt) =>{
+  const obj = {
+    method: "put",
+    url: itemsApi,
+    objDt,
+    isPrivate : true
+  }
+  return axiosProcessor(obj)
+} 
+
+//delete items
+
+export const deleteItems = (objDt) =>{
+  const obj = {
+    method: "delete",
+    url: itemsApi,
+    objDt,
+    isPrivate : true
+  }
+  return axiosProcessor(obj)
+} 
