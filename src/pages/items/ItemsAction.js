@@ -4,12 +4,8 @@ import { setItems } from "./ItemsSlice"
 
    export const postItemsAction = (obj) => async(dispatch) => {
 
-    const responsePromise  = postItems(obj);
-
-    toast.promise(responsePromise, {
-        pending:"Please wait ....."
-    })
-    const {status, message} = await responsePromise;
+   
+    const {status, message} = await postItems(obj);
    //  const {status, message} = await  postItems(obj);
     console.log(message)
     toast[status](message)

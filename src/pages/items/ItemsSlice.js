@@ -14,7 +14,7 @@ const itemsSlice = createSlice({
         },
         setItems: (state, action)=> {
             
-            state.setItems = action.payload
+            state.items = action.payload
             state.isLoading = false
         },
      
