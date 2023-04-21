@@ -60,7 +60,7 @@ export const CategoryTable = () => {
   return (
     <div className="shadow-lg p-3">
       <div className="d-flex justify-content-between mt-5">
-        <div className=""> {cats.length} items found!</div>
+        <div className="fw-bold mx-5"> {cats.length} items found!</div>
         <div>
           <Form.Control placeholder="search here" />
         </div>

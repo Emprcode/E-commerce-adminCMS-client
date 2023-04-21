@@ -19,7 +19,7 @@ export const CategoryForms = () => {
           <Col md="8">
             <input
               ref={catRef}
-              placeholder="Category name "
+              placeholder="Category Name "
               required
               name="name"
               className="form-control"

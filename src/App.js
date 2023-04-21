@@ -17,7 +17,7 @@ import { RequireAuth } from "./components/requireAuth/RequireAuth";
 import Items  from "./pages/items/Items";
 import { NewItems } from "./pages/items/NewItems";
 
-function App() {
+const App = () => {
   return (
     <div className="">
       <Browser>
