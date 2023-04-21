@@ -9,7 +9,7 @@ const Items = () => {
     <Dashobardlayout>
       <Container>
         <div className="product py-3">
-          <h4> Product/Items</h4>
+          <h4 className="text-center fw-bold mt-4"> Product/Items</h4>
         </div>
 
         <div className="text-end">

@@ -68,8 +68,8 @@ export const NewItems = () => {
       label: "Images",
       type: "file",
       multiple: true,
-      accept: "image/*",
       required: true,
+      accept: "image/*",
     },
   ];
 

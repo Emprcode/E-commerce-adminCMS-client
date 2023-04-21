@@ -28,7 +28,7 @@ useEffect(()=> {
             <tr>
               <th>#</th>
               <th>Thumbnail</th>
-              <th>status</th>
+              <th>Status</th>
               <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>

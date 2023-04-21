@@ -30,8 +30,8 @@ const ResetPassword = () => {
   };
 
   const forms = {
-    otp: <FormOtpRequest reqOtp={reqOtp} email={email} />,
     reset: <FormResetPassword email={email} goBack={goBack} resetPasswordRequest={resetPasswordRequest} />,
+    otp: <FormOtpRequest reqOtp={reqOtp} email={email} />,
   };
   return (
     <AdminLayout>
