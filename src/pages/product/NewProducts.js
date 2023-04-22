@@ -87,9 +87,9 @@ export const NewProducts = () => {
     for (let key in formDt) {
       formData.append(key, formDt[key]);
 
+    }
       newImages.length &&
         [...newImages].map((item) => formData.append("images", item));
-    }
     // console.log(newImages.length);
     dispatch(postProductAction(formData));
   };

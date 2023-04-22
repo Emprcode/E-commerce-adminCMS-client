@@ -55,7 +55,7 @@ const App = () => {
           />
          
           <Route
-            path="/products/newproducts"
+            path="/products/newproduct"
             element={
               <RequireAuth>
                 <NewProducts />

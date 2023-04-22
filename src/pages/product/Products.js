@@ -4,7 +4,7 @@ import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ProductTable } from "../../components/customTable/ProductTable";
 
-const Items = () => {
+const Products = () => {
   return (
     <Dashobardlayout>
       <Container>
@@ -13,9 +13,9 @@ const Items = () => {
         </div>
 
         <div className="text-end">
-          <Link to="/product/newproducts">
+          <Link to="/products/newproduct">
             <Button variant="warning">
-              <i class="fa-solid fa-plus"></i>Add new items
+              <i class="fa-solid fa-plus"></i>Add new Product
             </Button>
           </Link>
         </div>
@@ -27,4 +27,4 @@ const Items = () => {
   );
 };
 
-export default Items;
+export default Products;
