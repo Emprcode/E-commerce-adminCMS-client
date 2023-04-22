@@ -1,46 +1,22 @@
 import { toast } from "react-toastify";
-import { deleteSingleProduct, fetchProducts, postNewProduct, updateSingleProduct } from "../../helper/axiosHelper";
-import { requestPending, setProducts } from "./productSlice";
+import { fetchAllProducts, postProduct } from "../../helper/axiosHelper"
+import { setProducts } from "./productSlice"
 
+   export const postProductAction = (obj) => async(dispatch) => {
 
-
-
-// add new product 
-
-
-export const addNewProduct = (data) => async (dispatch) => {
-    dispatch(requestPending());
-    const {status, message} = await postNewProduct(data)
+   
+    const {status, message} = await postProduct(obj);
+   //  const {status, message} = await  postItems(obj);
+    console.log(message)
     toast[status](message)
 
-    status === "success" && dispatch(getProducts())
+
+    status === "success" && dispatch(getProductsAction())
+   }
 
 
-
-}
-
-//getproducts 
-
-
-export const getProducts = () => async(dispatch) => {
-    const {status, result} = await fetchProducts()
-console.log(status, result)
+   export  const getProductsAction = () => async(dispatch)=> {
+    const {status, result} = await fetchAllProducts()
 
     status === "success" && dispatch(setProducts(result))
-}
-
-//update product
-export const updateProduct = (data)=> async(dispatch)=> {
-    const {status, message} = await updateSingleProduct(data)
-    toast[status](message) 
-    status === "success" && dispatch(getProducts()) 
-}
-
-
-//deleteProduct
-
-export const deleteProduct = (data) => async(dispatch) => {
-    const {status, message} = await deleteSingleProduct(data)
-toast[status](message)
-    status === "success" && dispatch(getProducts())
-}
+   } 

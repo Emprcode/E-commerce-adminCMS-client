@@ -3,9 +3,9 @@ import Dashobardlayout from "../layout/Dashobardlayout";
 import { CustomInpute } from "../../components/customInpute/CustomInpute";
 import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { postItemsAction } from "./ItemsAction";
+import { postProductAction } from "./productAction";
 
-export const NewItems = () => {
+export const NewProducts = () => {
   const [formDt, SetFormDt] = useState({});
   const [newImages, setNewImages] = useState([]);
 
@@ -91,7 +91,7 @@ export const NewItems = () => {
         [...newImages].map((item) => formData.append("images", item));
     }
     // console.log(newImages.length);
-    dispatch(postItemsAction(formData));
+    dispatch(postProductAction(formData));
   };
 
   const handleOnImageUpload = (e) => {

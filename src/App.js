@@ -14,8 +14,8 @@ import PaymentOptions from "./pages/payment-options/PaymentOptions";
 import Customers from "./pages/customers/Customers";
 import Setting from "./pages/setting/Setting";
 import { RequireAuth } from "./components/requireAuth/RequireAuth";
-import Items  from "./pages/items/Items";
-import { NewItems } from "./pages/items/NewItems";
+
+import { NewProducts } from "./pages/product/NewProducts";
 
 const App = () => {
   return (
@@ -53,19 +53,12 @@ const App = () => {
               </RequireAuth>
             }
           />
+         
           <Route
-            path="/items"
+            path="/products/newproducts"
             element={
               <RequireAuth>
-                <Items />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/items/newitems"
-            element={
-              <RequireAuth>
-                <NewItems />
+                <NewProducts />
               </RequireAuth>
             }
           />

@@ -4,7 +4,7 @@ const adminAPI = apiRoot + "/admin";
 const categoryAPI = apiRoot + "/category";
 const paymentOptionsAPI = apiRoot + "/payment-options";
 const productApi = apiRoot + "/product";
-const itemsApi = apiRoot + "/items";
+// const itemsApi = apiRoot + "/items";
 
 export const axiosProcessor = async ({ url, method, objDt, isPrivate }) => {
   const headers = isPrivate
@@ -167,61 +167,61 @@ export const deleteSiglePaymentOption =(_id)=> {
 
 //post new product
 
-export const postNewProduct = (objDt) => {
-const obj ={
-  method: "post",
-  url: productApi,
-  objDt,
+// export const postNewProduct = (objDt) => {
+// const obj ={
+//   method: "post",
+//   url: productApi,
+//   objDt,
 
-  isPrivate: true
-}
+//   isPrivate: true
+// }
 
-return axiosProcessor(obj)
-}
+// return axiosProcessor(obj)
+// }
 
 //fetch product
 
-export const fetchProducts = () => {
-  const obj ={
-    method:"get",
-    url: productApi,
+// export const fetchProducts = () => {
+//   const obj ={
+//     method:"get",
+//     url: productApi,
 
-    isPrivate: true
-  }
-  return axiosProcessor(obj)
-}
+//     isPrivate: true
+//   }
+//   return axiosProcessor(obj)
+// }
 
 //update product
 
-export const updateSingleProduct = (objDt)=> {
-  const obj ={
-    method:"put",
-    url:productApi,
-    objDt
-  }
-  return axiosProcessor(obj)
-}
+// export const updateSingleProduct = (objDt)=> {
+//   const obj ={
+//     method:"put",
+//     url:productApi,
+//     objDt
+//   }
+//   return axiosProcessor(obj)
+// }
 
 //delete product
 
-export const deleteSingleProduct = (objDt) => {
-const obj = {
-  method: "delete",
-  url: productApi,
-  objDt,
+// export const deleteSingleProduct = (objDt) => {
+// const obj = {
+//   method: "delete",
+//   url: productApi,
+//   objDt,
 
 
-  isPrivate: true
-}
-return axiosProcessor(obj)
-}
+//   isPrivate: true
+// }
+// return axiosProcessor(obj)
+// }
 
 // ##### ______Items
-//add new items
-export const postItems = (objDt)=> {
+//add new products
+export const postProduct = (objDt)=> {
   const obj ={
     method:"post",
-    url:itemsApi,
+    url:productApi,
     objDt,
 
     isPrivate: true
@@ -231,20 +231,20 @@ export const postItems = (objDt)=> {
 
 //fetch items
 
-export const fetchItems = () =>{
+export const fetchAllProducts = () =>{
   const obj = {
     method: "get",
-    url: itemsApi,
+    url: productApi,
     isPrivate : true
   }
   return axiosProcessor(obj)
 } 
 //update items
 
-export const updateItems = (objDt) =>{
+export const updateProducts = (objDt) =>{
   const obj = {
     method: "put",
-    url: itemsApi,
+    url: productApi,
     objDt,
     isPrivate : true
   }
@@ -253,10 +253,10 @@ export const updateItems = (objDt) =>{
 
 //delete items
 
-export const deleteItems = (objDt) =>{
+export const deleteProducts = (objDt) =>{
   const obj = {
     method: "delete",
-    url: itemsApi,
+    url: productApi,
     objDt,
     isPrivate : true
   }
