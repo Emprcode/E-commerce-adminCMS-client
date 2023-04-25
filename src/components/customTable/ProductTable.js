@@ -7,7 +7,7 @@ import { getProductsAction } from '../../pages/product/productAction'
 export const ProductTable = () => {
 
   const { products } = useSelector((state) => state.product)
-  console.log(products)
+  // console.log(products)
 
   const dispatch = useDispatch()
 
