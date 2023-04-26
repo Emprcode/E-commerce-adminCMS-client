@@ -253,7 +253,7 @@ export const updateProducts = (objDt) =>{
 
 //delete items
 
-export const deleteProducts = (objDt) =>{
+export const deleteSingleProduct = (objDt) =>{
   const obj = {
     method: "delete",
     url: productApi,

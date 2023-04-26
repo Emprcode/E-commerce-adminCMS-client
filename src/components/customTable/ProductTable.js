@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Button, Table, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductsAction } from '../../pages/product/productAction'
+import { deleteSingleProductAction, getProductsAction } from '../../pages/product/productAction'
 
 
 export const ProductTable = () => {
@@ -15,6 +15,13 @@ useEffect(()=> {
   dispatch(getProductsAction())
 }, [dispatch])
 
+
+const handleOnDelete = (_id) => {
+  if ( window.confirm("Are you sure you want to delete this item?")) {
+    
+    dispatch(deleteSingleProductAction({_id}))
+  }
+}
   return (
     <div>
         <select className='mb-2'>
@@ -53,7 +60,7 @@ useEffect(()=> {
                 <td>{item.description}</td>
                 <td>
                   <Button variant="warning">Edit</Button>{" "}
-                  <Button variant="danger">Delete</Button>{" "}
+                  <Button variant="danger" onClick={ ()=> handleOnDelete(item._id)}>Delete</Button>{" "}
                  
                 </td>
               </tr>

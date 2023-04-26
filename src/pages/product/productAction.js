@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { fetchAllProducts, postProduct } from "../../helper/axiosHelper"
+import { deleteSingleProduct, fetchAllProducts, postProduct } from "../../helper/axiosHelper"
 import { setProducts } from "./productSlice"
 
    export const postProductAction = (obj) => async(dispatch) => {
@@ -20,3 +20,10 @@ import { setProducts } from "./productSlice"
 
     status === "success" && dispatch(setProducts(result))
    } 
+
+
+export const deleteSingleProductAction = (obj) => async(dispatch) => {
+   const{ status, message} = await deleteSingleProduct(obj)
+toast[status](message)
+   status === "success" && dispatch(getProductsAction())
+}
