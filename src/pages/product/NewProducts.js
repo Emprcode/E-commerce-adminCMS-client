@@ -4,6 +4,7 @@ import { CustomInpute } from "../../components/customInpute/CustomInpute";
 import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { postProductAction } from "./productAction";
+import { Link } from "react-router-dom";
 
 export const NewProducts = () => {
   const [formDt, SetFormDt] = useState({});
@@ -86,10 +87,9 @@ export const NewProducts = () => {
 
     for (let key in formDt) {
       formData.append(key, formDt[key]);
-
     }
-      newImages.length &&
-        [...newImages].map((item) => formData.append("images", item));
+    newImages.length &&
+      [...newImages].map((item) => formData.append("images", item));
     // console.log(newImages.length);
     dispatch(postProductAction(formData));
   };
@@ -101,7 +101,12 @@ export const NewProducts = () => {
 
   return (
     <Dashobardlayout>
-      <Container className="p-4">
+      <Container className="p-4 w-50 rounded border">
+        <Link to="/products">
+          <Button variant="secondary">
+            <i className="fa-solid fa-arrow-left"></i>
+          </Button>
+        </Link>
         <div className="py-3 fs-2">New Product</div>
         <hr />
         <Form onSubmit={handleOnSubmit}>
