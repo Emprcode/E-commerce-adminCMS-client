@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import Dashobardlayout from "../layout/Dashobardlayout";
 import { CustomInpute } from "../../components/customInpute/CustomInpute";
 import { Button, Container, Form } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postProductAction } from "./productAction";
 import { Link } from "react-router-dom";
 
 export const NewProducts = () => {
   const [formDt, SetFormDt] = useState({});
   const [newImages, setNewImages] = useState([]);
+  const { cats } = useSelector((state) => state.category);
+  console.log(cats);
 
   const dispatch = useDispatch();
   const inputes = [
@@ -109,6 +111,17 @@ export const NewProducts = () => {
         </Link>
         <div className="py-3 fs-2">New Product</div>
         <hr />
+        <Form.Group>
+          <Form.Select name="parentCat" required>
+            <option value=""> Select Category</option>
+            {cats.length > 0 &&
+              cats.map(({ _id, name, status }) => (
+                <option disabled={status === "inactive"} value={_id}>
+                  {name}
+                </option>
+              ))}
+          </Form.Select>
+        </Form.Group>
         <Form onSubmit={handleOnSubmit}>
           {inputes.map((item, i) => (
             <CustomInpute
