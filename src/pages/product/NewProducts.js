@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Dashobardlayout from "../layout/Dashobardlayout";
 import { CustomInpute } from "../../components/customInpute/CustomInpute";
 import { Button, Container, Form } from "react-bootstrap";
@@ -13,6 +13,7 @@ export const NewProducts = () => {
   console.log(cats);
 
   const dispatch = useDispatch();
+
   const inputes = [
     {
       name: "name",
@@ -112,7 +113,7 @@ export const NewProducts = () => {
         <div className="py-3 fs-2">New Product</div>
         <hr />
         <Form.Group>
-          <Form.Select name="parentCat" required>
+          <Form.Select name="parentCat" required onChange={handleOnChange}>
             <option value=""> Select Category</option>
             {cats.length > 0 &&
               cats.map(({ _id, name, status }) => (
