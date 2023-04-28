@@ -113,7 +113,7 @@ export const NewProducts = () => {
         <div className="py-3 fs-2">New Product</div>
         <hr />
         <Form.Group>
-          <Form.Select name="parentCat" required onChange={handleOnChange}>
+          <Form.Select name="parentCat" onChange={handleOnChange} required>
             <option value=""> Select Category</option>
             {cats.length > 0 &&
               cats.map(({ _id, name, status }) => (
