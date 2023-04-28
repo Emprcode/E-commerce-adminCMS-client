@@ -5,6 +5,8 @@ import {
   deleteSingleProductAction,
   getProductsAction,
 } from "../../pages/product/productAction";
+import { Link } from "react-router-dom";
+import { getCategories } from "../../pages/category/categoryAction";
 
 export const ProductTable = () => {
   const { products } = useSelector((state) => state.product);
@@ -13,7 +15,7 @@ export const ProductTable = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProductsAction());
+    dispatch(getCategories());
   }, [dispatch]);
 
   const handleOnDelete = (_id) => {
@@ -67,7 +69,8 @@ export const ProductTable = () => {
               <td>{item.qty}</td>
               <td>{item.description}</td>
               <td>
-                <Button variant="warning">Edit</Button>{" "}
+                <Link to={`/products/${item._id}`}>
+                <Button variant="warning">Edit</Button>{" "}</Link>
                 <Button
                   variant="danger"
                   onClick={() => handleOnDelete(item._id)}>

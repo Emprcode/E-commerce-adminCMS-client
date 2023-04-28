@@ -16,6 +16,7 @@ import Setting from "./pages/setting/Setting";
 import { RequireAuth } from "./components/requireAuth/RequireAuth";
 
 import { NewProducts } from "./pages/product/NewProducts";
+import { EditProduct } from "./pages/product/EditProduct";
 
 const App = () => {
   return (
@@ -59,6 +60,14 @@ const App = () => {
             element={
               <RequireAuth>
                 <NewProducts />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/products/:_id"
+            element={
+              <RequireAuth>
+                <EditProduct />
               </RequireAuth>
             }
           />
