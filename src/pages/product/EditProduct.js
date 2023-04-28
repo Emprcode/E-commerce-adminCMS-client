@@ -78,6 +78,7 @@ export const EditProduct = () => {
     },
   ];
 
+  
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     SetFormDt({

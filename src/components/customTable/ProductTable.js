@@ -15,7 +15,7 @@ export const ProductTable = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCategories());
+    dispatch(getProductsAction()) && dispatch(getCategories());
   }, [dispatch]);
 
   const handleOnDelete = (_id) => {
@@ -67,10 +67,10 @@ export const ProductTable = () => {
               <td>{item.name}</td>
               <td>{item.price}</td>
               <td>{item.qty}</td>
-              <td>{item.description}</td>
-              <td>
+              <td >{item.description}</td>
+              <td className="col-2">
                 <Link to={`/products/${item._id}`}>
-                <Button variant="warning">Edit</Button>{" "}</Link>
+                <Button variant="warning">Edit</Button></Link>{" "}
                 <Button
                   variant="danger"
                   onClick={() => handleOnDelete(item._id)}>
