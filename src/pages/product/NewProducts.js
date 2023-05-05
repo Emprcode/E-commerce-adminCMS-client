@@ -5,6 +5,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { postProductAction } from "./productAction";
 import { Link } from "react-router-dom";
+import { CustomDropDown } from "../../components/customSelect/CustomDropDown";
 
 export const NewProducts = () => {
   const [formDt, SetFormDt] = useState({});
@@ -112,7 +113,7 @@ export const NewProducts = () => {
         </Link>
         <div className="py-3 fs-2">New Product</div>
         <hr />
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Select name="parentCat" onChange={handleOnChange} required>
             <option value=""> Select Category</option>
             {cats.length > 0 &&
@@ -122,7 +123,8 @@ export const NewProducts = () => {
                 </option>
               ))}
           </Form.Select>
-        </Form.Group>
+        </Form.Group> */}
+        <CustomDropDown args={cats} func={handleOnChange} name="parentCat" />
         <Form onSubmit={handleOnSubmit}>
           {inputes.map((item, i) => (
             <CustomInpute

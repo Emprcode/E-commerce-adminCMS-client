@@ -3,7 +3,7 @@ import { Form } from 'react-bootstrap'
 
 export const CustomDropDown = ({args, func, name}) => {
   return (
-    <Form.Group>
+    <Form.Group className='mb-3'>
     <Form.Select name={name} required onChange={func} >
             <option value=""> Select Category</option>
             {args.length > 0 &&
