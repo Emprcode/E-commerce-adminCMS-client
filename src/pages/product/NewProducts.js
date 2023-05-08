@@ -96,6 +96,7 @@ export const NewProducts = () => {
       [...newImages].map((item) => formData.append("images", item));
     // console.log(newImages.length);
     dispatch(postProductAction(formData));
+    
   };
 
   const handleOnImageUpload = (e) => {
@@ -113,17 +114,7 @@ export const NewProducts = () => {
         </Link>
         <div className="py-3 fs-2">New Product</div>
         <hr />
-        {/* <Form.Group>
-          <Form.Select name="parentCat" onChange={handleOnChange} required>
-            <option value=""> Select Category</option>
-            {cats.length > 0 &&
-              cats.map(({ _id, name, status }) => (
-                <option disabled={status === "inactive"} value={_id}>
-                  {name}
-                </option>
-              ))}
-          </Form.Select>
-        </Form.Group> */}
+     
         <CustomDropDown args={cats} func={handleOnChange} name="parentCat" />
         <Form onSubmit={handleOnSubmit}>
           {inputes.map((item, i) => (

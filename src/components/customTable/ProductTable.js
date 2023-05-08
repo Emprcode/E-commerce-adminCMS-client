@@ -70,7 +70,7 @@ export const ProductTable = () => {
               <td >{item.description}</td>
               <td className="col-2">
                 <Link to={`/products/${item._id}`}>
-                <Button variant="warning">Edit</Button></Link>{" "}
+                <Button variant="warning" >Edit</Button></Link>{" "}
                 <Button
                   variant="danger"
                   onClick={() => handleOnDelete(item._id)}>

@@ -12,6 +12,8 @@ export const EditProduct = () => {
   const [newImages, setNewImages] = useState([]);
   const { cats } = useSelector((state) => state.category);
   console.log(cats);
+  const { products } = useSelector((state) => state.product);
+  console.log(products)
 
   const dispatch = useDispatch();
   const {_id} = useParams()
@@ -79,6 +81,9 @@ export const EditProduct = () => {
     },
   ];
 
+  useEffect(()=> {
+    SetFormDt(products)
+  }, [SetFormDt, products])
   
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -133,7 +138,7 @@ export const EditProduct = () => {
               key={i}
               {...item}
               onChange={
-                item.name === "images" ? handleOnImageUpload : handleOnChange
+                handleOnChange
               }
             />
           ))}
