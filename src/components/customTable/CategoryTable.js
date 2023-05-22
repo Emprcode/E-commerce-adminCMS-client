@@ -9,6 +9,7 @@ import {
 
 export const CategoryTable = () => {
   const { cats } = useSelector((state) => state.category);
+  console.log(cats)
   const dispatch = useDispatch();
   const [displayCats, setDisplayCats] = useState([]);
   const [selectedCat, setSelectedCat] = useState({});

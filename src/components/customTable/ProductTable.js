@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Table, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,28 +10,47 @@ import { getCategories } from "../../pages/category/categoryAction";
 
 export const ProductTable = () => {
   const { products } = useSelector((state) => state.product);
+  const {cats} = useSelector((state) => state.category)
+  const[selectedCat, setSelectedCat] = useState('')
+  console.log(cats)
   // console.log(products)
 
+  const [listProduct, SetListProduct] = useState([])
+  const [shouldFetch, setShouldFetch] = useState(true)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProductsAction()) && dispatch(getCategories());
-  }, [dispatch]);
+    setShouldFetch(true)
+    shouldFetch && dispatch(getProductsAction()) && dispatch(getCategories());
+    setShouldFetch(false)
+    SetListProduct(products)
+  }, [dispatch, products]);
 
   const handleOnDelete = (_id) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       dispatch(deleteSingleProductAction({ _id }));
     }
   };
+
+  const handleOnFilter =(value)=> {
+  value === "all" ?
+      SetListProduct(products) : SetListProduct(products.filter((item) => item.parentCat === value))
+   
+ 
+  }
+ 
+  
   return (
     <div>
       <div className="d-flex justify-content-between mt-5">
-        <select className="mb-2">
-          <option value=""> All</option>
-          <option value=""> Active</option>
-          <option value=""> Inactive</option>
+        <select className="mb-2" onChange={(e) => handleOnFilter(e.target.value)}>
+        <option  value="all"> All</option>
+          {
+            cats.map((item)=>  <option key={item._id}  value={item._id}>{item.name}</option>)
+          }
+          
         </select>
-        <div className="fw-bold "> {products.length} items found!</div>
+        <div className="fw-bold "> {listProduct.length} items found!</div>
       </div>
       <hr />
       <Table striped bordered hover>
@@ -48,7 +67,7 @@ export const ProductTable = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((item, i) => (
+          {listProduct.map((item, i) => (
             <tr key={i}>
               <td>{i + 1}</td>
               <td>

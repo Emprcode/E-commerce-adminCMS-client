@@ -27,7 +27,6 @@ const LoginPage = () => {
       email: emailRef.current.value,
       password: passRef.current.value,
     };
-
     dispatch(loginAdmin(obj));
   };
 
