@@ -16,7 +16,7 @@ import { RequireAuth } from "./components/requireAuth/RequireAuth";
 
 import { NewProducts } from "./pages/product/NewProducts";
 import { EditProduct } from "./pages/product/EditProduct";
-import Dashboard from "./pages/dashboard/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard.js";
 
 const App = () => {
   return (
