@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 export const RecentUpdatesTable = () => {
   return (
     <>
-        <div className="fw-bold p-3"> Recents Updates</div>
+        <div className="fw-bold p-3 h4"> Recents Updates</div>
     <Table hover>
       <thead>
         <tr>
