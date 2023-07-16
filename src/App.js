@@ -5,7 +5,6 @@ import Registration from "./pages/register/Registration";
 import LoginPage from "./pages/login/LoginPage";
 import EmailVerify from "./pages/verify/EmailVerify";
 import { ToastContainer } from "react-toastify";
-import Dashboard from "./pages/dashboard/Dashboard";
 import ResetPassword from "./pages/reset-password/ResetPassword";
 import Category from "./pages/category/Category";
 import Products from "./pages/product/Products";
@@ -17,6 +16,7 @@ import { RequireAuth } from "./components/requireAuth/RequireAuth";
 
 import { NewProducts } from "./pages/product/NewProducts";
 import { EditProduct } from "./pages/product/EditProduct";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 const App = () => {
   return (
@@ -54,7 +54,7 @@ const App = () => {
               </RequireAuth>
             }
           />
-         
+
           <Route
             path="/products/newproduct"
             element={
@@ -108,6 +108,6 @@ const App = () => {
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default App;
