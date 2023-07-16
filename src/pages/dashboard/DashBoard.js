@@ -56,7 +56,7 @@ const Dashboard = () => {
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
-                    Weekly Sales <i class="fa-solid fa-chart-mixed"></i>
+                    Weekly Sales <i className="fa-solid fa-chart-mixed"></i>
                   </p>
                 </div>
 
@@ -68,7 +68,7 @@ const Dashboard = () => {
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
-                    Weekly orders <i class="fa-solid fa-chart-mixed"></i>
+                    Weekly orders <i className="fa-solid fa-chart-mixed"></i>
                   </p>
                 </div>
 
@@ -80,7 +80,7 @@ const Dashboard = () => {
               <div>
                 <div className="d-flex justify-content-around">
                   <p className="p-2">
-                    Visitors online <i class="fa-solid fa-chart-mixed"></i>
+                    Visitors online <i className="fa-solid fa-chart-mixed"></i>
                   </p>
                 </div>
 

@@ -38,7 +38,7 @@ export const Header = () => {
             {admin?._id ? (
               <>
                 <Link className="nav-link" to="/profile">
-                  <i class="fa-solid fa-user text-light "></i>
+                  <i className="fa-solid fa-user text-light "></i>
                 </Link>
                 <Link className="nav-link" to="/notification">
                   <i

@@ -2,9 +2,10 @@ import Table from "react-bootstrap/Table";
 
 export const RecentUpdatesTable = () => {
   return (
+    <>
+        <div className="fw-bold p-3"> Recents Updates</div>
     <Table hover>
       <thead>
-        <h4 className="fw-bold p-3"> Recents Updates</h4>
         <tr>
           <th>Name</th>
           <th> Subject</th>
@@ -36,7 +37,7 @@ export const RecentUpdatesTable = () => {
           <td> Shipment </td>
           <td>Shipping all the customers Order</td>
           <td>
-            <div className="onhold badge "> ON HOLD</div>
+            <div className="onhold badge"> ON HOLD</div>
           </td>
           <td>March 29, 2023</td>
           <td>AB-12347</td>
@@ -52,5 +53,6 @@ export const RecentUpdatesTable = () => {
         </tr>
       </tbody>
     </Table>
+    </>
   );
 };
