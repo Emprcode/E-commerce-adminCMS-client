@@ -74,7 +74,7 @@ export const ProductTable = () => {
               <td>
                 {
                   <img
-                    src={process.env.REACT_APP_IMAGE_API + item?.thumbnail.substr(6)}
+                    src={process.env.REACT_APP_IMAGE_API + item?.thumbnail?.substr(7)}
                     width="150px"
                     alt="items"
                   />
