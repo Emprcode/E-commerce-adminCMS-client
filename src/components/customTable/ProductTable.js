@@ -10,20 +10,20 @@ import { getCategories } from "../../pages/category/categoryAction";
 
 export const ProductTable = () => {
   const { products } = useSelector((state) => state.product);
-  const {cats} = useSelector((state) => state.category)
-  const[selectedCat, setSelectedCat] = useState('')
-  console.log(cats)
-  // console.log(products)
+  const { cats } = useSelector((state) => state.category);
+  const [selectedCat, setSelectedCat] = useState("");
+  // console.log(cats);
+  // console.log("products:", products);
 
-  const [listProduct, SetListProduct] = useState([])
-  const [shouldFetch, setShouldFetch] = useState(true)
+  const [listProduct, SetListProduct] = useState([]);
+  const [shouldFetch, setShouldFetch] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setShouldFetch(true)
+    setShouldFetch(true);
     shouldFetch && dispatch(getProductsAction()) && dispatch(getCategories());
-    setShouldFetch(false)
-    SetListProduct(products)
+    setShouldFetch(false);
+    SetListProduct(products);
   }, [dispatch, products]);
 
   const handleOnDelete = (_id) => {
@@ -32,24 +32,25 @@ export const ProductTable = () => {
     }
   };
 
-  const handleOnFilter =(value)=> {
-  value === "all" ?
-      SetListProduct(products) : SetListProduct(products.filter((item) => item.parentCat === value))
-   
- 
-  }
- 
-  console.log(listProduct)
-  
+  const handleOnFilter = (value) => {
+    value === "all"
+      ? SetListProduct(products)
+      : SetListProduct(products.filter((item) => item.parentCat === value));
+  };
+
   return (
     <div>
       <div className="d-flex justify-content-between mt-5">
-        <select className="mb-2" onChange={(e) => handleOnFilter(e.target.value)}>
-        <option  value="all"> All</option>
-          {
-            cats.map((item)=>  <option key={item._id}  value={item._id}>{item.name}</option>)
-          }
-          
+        <select
+          className="mb-2"
+          onChange={(e) => handleOnFilter(e.target.value)}
+        >
+          <option value="all"> All</option>
+          {cats.map((item) => (
+            <option key={item._id} value={item._id}>
+              {item.name}
+            </option>
+          ))}
         </select>
         <div className="fw-bold "> {listProduct.length} items found!</div>
       </div>
@@ -71,15 +72,7 @@ export const ProductTable = () => {
           {listProduct.map((item, i) => (
             <tr key={i}>
               <td>{i + 1}</td>
-              <td>
-                {
-                  <img
-                    src={process.env.REACT_APP_IMAGE_API + item?.thumbnail?.substr(6)}
-                    width="150px"
-                    alt="items"
-                  />
-                }
-              </td>
+              <td>{<img src={item?.thumbnail} width="150px" alt="items" />}</td>
 
               <td>
                 <Form.Check type="switch" id="custom-switch" name="status" />
@@ -87,13 +80,15 @@ export const ProductTable = () => {
               <td>{item.name}</td>
               <td>{item.price}</td>
               <td>{item.qty}</td>
-              <td >{item.description}</td>
+              <td>{item.description}</td>
               <td className="col-2">
                 <Link to={`/products/${item._id}`}>
-                <Button variant="warning" >Edit</Button></Link>{" "}
+                  <Button variant="warning">Edit</Button>
+                </Link>{" "}
                 <Button
                   variant="danger"
-                  onClick={() => handleOnDelete(item._id)}>
+                  onClick={() => handleOnDelete(item._id)}
+                >
                   Delete
                 </Button>{" "}
               </td>

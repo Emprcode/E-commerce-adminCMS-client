@@ -150,20 +150,16 @@ export const fetchPaymentOptions = () => {
   return axiosProcessor(obj);
 };
 
-//delete payment Options 
-export const deleteSiglePaymentOption =(_id)=> {
-  const obj ={
-    method:"delete",
+//delete payment Options
+export const deleteSiglePaymentOption = (_id) => {
+  const obj = {
+    method: "delete",
     url: paymentOptionsAPI + "/" + _id,
 
-
-    isPrivate: true
-
-  }
-  return axiosProcessor(obj)
-}
-
-
+    isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
 
 //post new product
 
@@ -210,7 +206,6 @@ export const deleteSiglePaymentOption =(_id)=> {
 //   url: productApi,
 //   objDt,
 
-
 //   isPrivate: true
 // }
 // return axiosProcessor(obj)
@@ -218,47 +213,46 @@ export const deleteSiglePaymentOption =(_id)=> {
 
 // ##### ______Items
 //add new products
-export const postProduct = (objDt)=> {
-  const obj ={
-    method:"post",
-    url:productApi,
+export const postProduct = (objDt) => {
+  const obj = {
+    method: "post",
+    url: productApi,
     objDt,
-
-    isPrivate: true
-  }
-  return axiosProcessor(obj)
-}
+    isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
 
 //fetch items
 
-export const fetchAllProducts = () =>{
+export const fetchAllProducts = () => {
   const obj = {
     method: "get",
     url: productApi,
-    isPrivate : true
-  }
-  return axiosProcessor(obj)
-} 
+    isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
 //update items
 
-export const updateProducts = (objDt) =>{
+export const updateProducts = (objDt) => {
   const obj = {
     method: "put",
     url: productApi,
     objDt,
-    isPrivate : true
-  }
-  return axiosProcessor(obj)
-} 
+    isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
 
 //delete items
 
-export const deleteSingleProduct = (objDt) =>{
+export const deleteSingleProduct = (objDt) => {
   const obj = {
     method: "delete",
     url: productApi,
     objDt,
-    isPrivate : true
-  }
-  return axiosProcessor(obj)
-} 
+    isPrivate: true,
+  };
+  return axiosProcessor(obj);
+};
