@@ -9,7 +9,6 @@ import {
 
 export const CategoryTable = () => {
   const { cats } = useSelector((state) => state.category);
-  console.log(cats)
   const dispatch = useDispatch();
   const [displayCats, setDisplayCats] = useState([]);
   const [selectedCat, setSelectedCat] = useState({});
@@ -130,12 +129,14 @@ export const CategoryTable = () => {
                     {" "}
                     <Button
                       variant="warning"
-                      onClick={() => setSelectedCat(item)}>
+                      onClick={() => setSelectedCat(item)}
+                    >
                       Edit
                     </Button>{" "}
                     <Button
                       variant="danger"
-                      onClick={() => handleOnDelete(item._id)}>
+                      onClick={() => handleOnDelete(item._id)}
+                    >
                       Delete
                     </Button>
                   </td>
